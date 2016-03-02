@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/post_message_cardlist_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="1dp"
+    card_view:cardElevation="0dp"
+    card_view:cardMaxElevation="0.5dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/post_message_listitem_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This is a Sample message.\nYou can also use the alternative approach. \nProfessor Parmar can help you certainly."
+                android:paddingTop="3dp"
+                android:textColor="@color/secondary_text_default_material_light"
+                android:textSize="15sp"
+                android:layout_column="1"
+            android:paddingBottom="3dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/post_message_listitem_date"
+            />
+
+        <TextView
+            android:id="@+id/post_message_listitem_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nevil Prajapati"
+            android:paddingTop="8dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:paddingBottom="3dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:layout_below="@+id/post_message_listitem_text"
+            android:layout_alignEnd="@+id/post_message_listitem_date"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:id="@+id/post_message_listitem_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21 Nov"
+            android:paddingTop="3dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:paddingBottom="3dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+        <ProgressBar android:id="@+id/list_progress" style="?android:attr/progressBarStyleLarge"
+            android:layout_width="50dp" android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"/>
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/edit"
+                android:id="@+id/post_message_listitem_editbutton"
+                android:background="@drawable/round_button"
+                android:padding="5dp"
+                android:layout_alignTop="@+id/post_message_listitem_deletebutton"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_done"
+                android:id="@+id/post_message_listitem_okbutton"
+                android:background="@drawable/round_button"
+                android:padding="5dp"
+                android:layout_marginTop="30dp"
+                android:layout_alignTop="@+id/post_message_listitem_cancelbutton"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:visibility="gone"/>
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/delete_icon"
+                android:id="@+id/post_message_listitem_deletebutton"
+                android:background="@drawable/round_button"
+                android:padding="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/post_message_listitem_editbutton"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="30dp"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_pane_close"
+                android:id="@+id/post_message_listitem_cancelbutton"
+                android:background="@drawable/round_button"
+                android:padding="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/post_message_listitem_okbutton"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="38dp"
+                android:visibility="gone"/>
+
+
+        <!--<TextView
+            android:id="@+id/post_message_listitem_deletebutton"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/post_message_listitem_editbutton"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="66dp"
+            style="@style/MoreButton"
+            android:textAlignment="center"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/post_message_listitem_editbutton"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:layout_alignTop="@+id/post_message_listitem_deletebutton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            style="@style/MoreButton"
+            android:textAlignment="center"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/post_message_listitem_okbutton"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="Ok"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:layout_alignTop="@+id/post_message_listitem_cancelbutton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            style="@style/MoreButton"
+            android:textAlignment="center"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/post_message_listitem_cancelbutton"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/post_message_listitem_okbutton"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="66dp"
+            style="@style/MoreButton"
+            android:textAlignment="center"
+            android:visibility="gone"/>-->
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_message_listitem_edit_text"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/post_message_listitem_date"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="30dp"
+            android:visibility="gone"/>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:id="@+id/post_message_listitem_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13:24"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:paddingBottom="3dp"
+            android:layout_below="@+id/post_message_listitem_date"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

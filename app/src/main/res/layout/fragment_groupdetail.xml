@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dummyfrag_groupdetail_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/card_bg">
+
+        <TextView
+            android:id="@+id/textViewLable1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About"
+            android:textColor="@color/item_text_secondar_color"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/groupdetail_about"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Write Something about group.."
+            android:paddingTop="3dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_below="@+id/textViewLable1"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/textViewLable2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Group Category"
+            android:textColor="@color/item_text_secondar_color"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/groupdetail_about"/>
+
+        <TextView
+            android:id="@+id/groupdetail_type_static"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Social"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textViewLable2"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/groupdetail_admin_static"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Group Admin"
+            android:textColor="@color/item_text_secondar_color"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/groupdetail_type_static"/>
+
+        <TextView
+            android:id="@+id/groupdetail_admin_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nevil Prajapati"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:layout_column="1"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/groupdetail_admin_static"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+
+</FrameLayout>

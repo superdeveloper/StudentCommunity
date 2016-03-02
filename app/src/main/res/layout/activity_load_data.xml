@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/load_data_activity_main_content"
+    tools:context="com.ldceconnect.ldcecommunity.LoadDataActivity">
+
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:fitsSystemWindows="true" >
+
+    <android.support.design.widget.AppBarLayout android:id="@+id/appbar"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:theme="@style/Theme.IOSched.AppBarOverlay"
+        android:background="@color/app_secondary_accent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rel_conatiner">
+
+            <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+                android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+                android:background="@color/app_secondary_accent"
+                app:popupTheme="@style/Theme.IOSched.PopupOverlay"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:title="@string/app_name"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/toolbar_search_icon"
+                android:src="@drawable/ic_action_search"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/explore_community_tagline"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Learn Share Collaborate"
+                android:textColor="@color/app_primary_accent"
+                android:textSize="15sp"
+                android:paddingLeft="60dp"
+                android:clickable="false"
+                android:textStyle="italic"
+                app:layout_scrollFlags="scroll|enterAlways"/>
+
+            <ImageView
+                android:id="@+id/load_data_refresh"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_refresh_black_36dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="40dp" />
+
+        <android.support.design.widget.TabLayout android:id="@+id/load_data_tabs"
+            android:layout_width="match_parent" android:layout_height="40dp"
+            android:background="@color/app_primary_accent"
+            android:layout_below="@+id/explore_community_tagline"/>
+
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager android:id="@+id/load_data_tabs_container"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</android.support.design.widget.CoordinatorLayout>
+
+
+        <ProgressBar android:id="@+id/loading_progress" style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="209dp"
+            android:visibility="gone"/>
+
+
+
+
+</RelativeLayout>

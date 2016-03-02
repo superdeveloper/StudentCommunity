@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/discussion_cardlist_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="1dp"
+    card_view:cardElevation="0dp"
+    card_view:cardMaxElevation="0.5dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/listPreferredItemHeightLarge"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/discussion_cardlist_item_star">
+
+                <TextView
+                    android:id="@+id/discussion_listitemname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thread Title ..."
+                    android:textColor="@color/primary_text_default_material_light"
+                    android:textSize="@dimen/abc_text_size_subhead_material"
+                    android:clickable="false"
+                    android:paddingTop="3dp"
+                    android:layout_alignBottom="@+id/list_progress"
+                    android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/discussion_listitemparentgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group"
+                android:paddingTop="3dp"
+                android:textStyle="italic"
+                android:textColor="@color/secondary_text_default_material_light"
+                android:textSize="@dimen/abc_text_size_caption_material"
+                android:layout_column="1"
+                android:layout_below="@+id/discussion_listitemname"/>
+
+
+                <!--<TextView
+                    android:id="@+id/discussion_listitemsubname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="#tags"
+                    android:paddingTop="3dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/secondary_text_default_material_light"
+                    android:textSize="@dimen/abc_text_size_caption_material"
+                    android:layout_column="1"
+                    android:layout_below="@+id/discussion_listitemparentgroup"
+                     />-->
+
+            <ProgressBar android:id="@+id/list_progress" style="?android:attr/progressBarStyleLarge"
+                android:layout_width="50dp" android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:id="@+id/discussion_cardlist_item_star"
+            android:src="@drawable/ratingbar_star_off_default"
+            android:layout_alignTop="@+id/relativeLayout"
+            android:layout_alignParentEnd="true" />
+
+        <!--<RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/relativeLayout1"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true">
+
+            <ImageView
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:id="@+id/discussion_cardlist_item_upvote"
+                android:src="@drawable/up"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="30dp"
+                android:id="@+id/discussion_cardlist_item_downvote"
+                android:src="@drawable/down"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>-->
+
+
+
+        <!--<TextView
+            android:id="@+id/discussion_cardlist_item_stars_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="225"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:clickable="false"
+            android:paddingTop="3dp"
+            android:paddingLeft="3dp"
+            android:layout_alignTop="@+id/discussion_cardlist_item_star"
+            android:layout_toEndOf="@+id/discussion_cardlist_item_star"
+            android:textColor="@color/secondary_text_default_material_light"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/discussion_cardlist_item_comments"
+            android:src="@drawable/comments_icon"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/discussion_cardlist_item_stars_count" />
+
+        <TextView
+            android:id="@+id/discussion_cardlist_item_comments_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="225"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:clickable="false"
+            android:paddingTop="3dp"
+            android:paddingLeft="3dp"
+            android:layout_alignTop="@+id/discussion_cardlist_item_star"
+            android:layout_toEndOf="@+id/discussion_cardlist_item_comments"
+            android:textColor="@color/secondary_text_default_material_light"/>-->
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

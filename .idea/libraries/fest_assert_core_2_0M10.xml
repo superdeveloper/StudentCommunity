@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="fest-assert-core-2.0M10">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/croplib/testlibs/fest-assert-core-2.0M10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

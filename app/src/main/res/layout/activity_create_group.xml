@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/group_drawer_layout"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fitsSystemWindows="true" tools:openDrawer="start">-->
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/creategroup_main_container"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fitsSystemWindows="true" tools:context="com.ldceconnect.ldcecommunity.ExploreCommunity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <android.support.design.widget.AppBarLayout android:id="@+id/creategroup_appbar"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:theme="@style/Theme.IOSched.AppBarOverlay"
+            android:background="@color/app_secondary_accent">
+
+            <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+                android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+                android:background="@color/app_secondary_accent"
+                app:popupTheme="@style/Theme.IOSched.PopupOverlay"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+            </android.support.v7.widget.Toolbar>
+
+            <!--<View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/toolbar_shadow" />-->
+
+            <!-- Empty Collection view -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="5dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:weightSum="1"
+                android:id="@+id/linearLayout"
+                android:background="@color/app_primary_accent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/creategroup_imagecontainer"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/group_icon"
+                        android:layout_alignParentTop="true" />
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="15dp"
+                        android:text="Change"
+                        android:textSize="10sp"
+                        android:id="@+id/creategroup_uploadbutton"
+                        android:paddingTop="2dp"
+                        android:gravity="center"
+                        android:background="@drawable/rect_button_white"
+                        android:layout_alignBottom="@+id/creategroup_imagecontainer"
+                        android:layout_alignStart="@+id/creategroup_imagecontainer" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/creategroup_groupTitleEditText"
+                        android:hint="Group Title"
+                        android:singleLine="false"
+                        android:lines="2"
+                        android:maxLength="40"
+                        android:background="@android:color/transparent"
+                        android:paddingLeft="5dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingRight="20dp"
+                        android:layout_toEndOf="@+id/creategroup_imagecontainer" />
+
+                    <!--<TextView
+                        android:id="@+id/creategroup_listitem_name"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:text="Group Title"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:textSize="@dimen/abc_text_size_subhead_material"
+                        android:paddingLeft="10dp"
+                        android:clickable="true"
+                        android:layout_marginEnd="27dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true" />-->
+
+                    <!--<ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/creategroup_EditTitleIcon"
+                        android:src="@drawable/edit_icon"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignTop="@+id/creategroup_listitem_name" />-->
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </android.support.design.widget.AppBarLayout>
+        <!--    <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">-->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/card_bg"
+    android:layout_below="@+id/creategroup_appbar">
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_gravity="center"
+    android:id="@+id/scrollview_dummy">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout_dummy"
+        android:paddingTop="5dp"
+        android:background="@color/app_white">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/creategroup_edit_description"
+            android:singleLine="false"
+            android:hint="Describe group"
+            android:background="@android:color/transparent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:paddingLeft="10dp"
+            android:isScrollContainer="true"
+            android:inputType="textMultiLine"
+            android:gravity="top|left"/>
+
+        </RelativeLayout>
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:id="@+id/creategroup_container"
+            android:background="@color/app_white"
+            android:layout_alignParentStart="true"
+            android:layout_margin="0dp"
+            android:layout_below="@+id/scrollview_dummy">
+
+            <Spinner
+                android:id="@+id/creategroup_category_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="3dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/creategroup_members_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Members"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                android:paddingLeft="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/creategroup_category_spinner"/>
+
+            <android.support.v4.view.ViewPager android:id="@+id/student_members_container"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_below="@+id/creategroup_members_label"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp" />
+
+            </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/dummySection"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_done"
+                    android:id="@+id/creategroup_submit_button"
+                    android:background="@drawable/round_button"
+                    android:padding="5dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/creategroup_addmember_button" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/add_person_icon"
+                    android:id="@+id/creategroup_addmember_button"
+                    android:background="@drawable/round_button"
+                    android:padding="10dp"
+                    android:layout_marginStart="95dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+
+
+        <!--<android.support.design.widget.NavigationView android:id="@+id/nav_sidemenu_department"
+            android:layout_width="wrap_content" android:layout_height="match_parent"
+            android:layout_gravity="start" android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_side_drawer"
+            app:menu="@menu/menu_explore_community" />-->
+        <!-- </RelativeLayout>-->
+    </RelativeLayout>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+
+    <!--
+    </android.support.v4.widget.DrawerLayout>-->

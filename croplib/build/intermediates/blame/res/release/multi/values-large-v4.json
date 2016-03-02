@@ -1,0 +1,146 @@
+[
+    {
+        "outputFile": "D:\\Nevil\\LDCECommunity_22_02\\LDCECommunity\\croplib\\build\\intermediates\\res\\merged\\release\\values-large-v4\\values-large-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 47,
+                    "endOffset": 98
+                },
+                "from": {
+                    "file": "D:\\Nevil\\LDCECommunity_22_02\\LDCECommunity\\croplib\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 47,
+                        "endOffset": 60
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\Nevil\\LDCECommunity\\croplib\\build\\intermediates\\res\\merged\\release\\values-large-v4\\values-large-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 47,
+                    "endOffset": 98
+                },
+                "from": {
+                    "file": "D:\\Nevil\\LDCECommunity\\croplib\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 47,
+                        "endOffset": 60
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Nevil\\LDCECommunity_23_02\\LDCECommunity\\croplib\\build\\intermediates\\res\\merged\\release\\values-large-v4\\values-large-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 47,
+                    "endOffset": 98
+                },
+                "from": {
+                    "file": "C:\\Nevil\\LDCECommunity_23_02\\LDCECommunity\\croplib\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 47,
+                        "endOffset": 60
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Nevil\\StudentCommunity\\croplib\\build\\intermediates\\res\\merged\\release\\values-large-v4\\values-large-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 47,
+                    "endOffset": 98
+                },
+                "from": {
+                    "file": "C:\\Nevil\\StudentCommunity\\croplib\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 47,
+                        "endOffset": 60
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Nevil\\LDCECommunity_22_01_2\\LDCECommunity\\croplib\\build\\intermediates\\res\\merged\\release\\values-large-v4\\values-large-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 47,
+                    "endOffset": 98
+                },
+                "from": {
+                    "file": "C:\\Nevil\\LDCECommunity_22_01_2\\LDCECommunity\\croplib\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 47,
+                        "endOffset": 60
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Nevil\\LDCECommunity\\croplib\\build\\intermediates\\res\\merged\\release\\values-large-v4\\values-large-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 47,
+                    "endOffset": 98
+                },
+                "from": {
+                    "file": "C:\\Nevil\\LDCECommunity\\croplib\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 47,
+                        "endOffset": 60
+                    }
+                }
+            }
+        ]
+    }
+]

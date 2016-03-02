@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="fest-util-1.2.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/croplib/testlibs/fest-util-1.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

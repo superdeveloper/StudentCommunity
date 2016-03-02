@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".NavigationDrawerActivity">
+    <item android:id="@+id/action_change_password" android:title="Change Password"
+        android:orderInCategory="100" app:showAsAction="never"
+        android:visible="true"/>
+    <item android:id="@+id/action_forgot_password" android:title="Forgot Password"
+        android:orderInCategory="100" app:showAsAction="never"
+        android:visible="true"/>
+    <item android:id="@+id/action_refresh_data" android:title="@string/action_refresh"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>

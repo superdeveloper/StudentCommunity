@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.ldceconnect.ldcecommunity.WelcomeActivity"
+    android:background="?colorPrimary">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="LDCE"
+        android:id="@+id/welcomeTitle"
+        android:textColor="@color/app_primary_text"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textSize="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linearlayout_bg"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="63dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="@string/signin"
+
+        android:id="@+id/signInButton"
+        android:background="@drawable/rect_round_button"
+        android:onClick="OnSignIn"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:paddingTop="12dp"
+
+        android:layout_marginLeft="3dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="@string/join"
+        android:id="@+id/signUpButton"
+        android:background="@drawable/rect_round_button"
+        android:onClick="OnRegister"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:paddingTop="12dp"
+        android:layout_marginLeft="3dp"
+        android:layout_below="@+id/signInButton"
+        android:layout_centerHorizontal="true"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signUpButton"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="3dp">
+
+
+
+        <TextView
+            style="?android:textAppearanceSmall"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="Sign In"
+            android:id="@+id/signInGoogleButton"
+            android:background="@drawable/rect_round_button_white"
+            android:onClick="OnGoogleSignIn"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:paddingTop="12dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/google_logo"
+                android:src="@drawable/icon_google"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:adjustViewBounds="false"
+                android:layout_marginLeft="12dp"/>
+
+
+        </RelativeLayout>
+        </RelativeLayout>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/signUpButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Community"
+        android:id="@+id/textView4"
+        android:textColor="@color/app_primary_text"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textSize="40dp"
+        android:layout_below="@+id/welcomeTitle"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Learn Share Collaborate"
+        android:id="@+id/textView3"
+        android:layout_marginTop="33dp"
+        android:textStyle="italic"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

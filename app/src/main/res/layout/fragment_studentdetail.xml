@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dummyfrag_studentdetail_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.99"
+        android:padding="3dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/card_bg">
+
+        <TextView
+            android:id="@+id/studentdetail_groups_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Member of groups"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/item_text_secondar_color"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dummyfrag_group_scrollableview_big"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="10dp"
+            android:layout_below="@+id/studentdetail_groups_label" />
+
+        <TextView
+            android:id="@+id/studentdetail_about_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bio"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/item_text_secondar_color"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/dummyfrag_group_scrollableview_big"/>
+
+        <TextView
+            android:id="@+id/studentdetail_about"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Dummy text"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp"
+            android:layout_below="@id/studentdetail_about_label"/>
+
+
+        <TextView
+            android:id="@+id/studentdetail_email_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/studentdetail_about"
+            android:text="Email"
+            android:textColor="@color/item_text_secondar_color"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/studentdetail_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/studentdetail_email_label"
+            android:text="dummyemail@gmail.com"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+
+        <TextView
+            android:id="@+id/studentdetail_contact_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/studentdetail_email"
+            android:text="Contact"
+            android:textColor="@color/item_text_secondar_color"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/studentdetail_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/studentdetail_contact_label"
+            android:text="9874563210"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+    </RelativeLayout>
+
+</FrameLayout>

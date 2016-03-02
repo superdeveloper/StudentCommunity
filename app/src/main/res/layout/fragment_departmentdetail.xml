@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dummyfrag_departmentdetail_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.99">
+
+        <TextView
+            android:id="@+id/departmentdetail_about_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/app_secondary_accent"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/departmentdetail_about"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Department of Computer Science"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp"
+            android:layout_below="@id/departmentdetail_about_label"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/separator_dummy1"
+            android:background="@color/butter_bar_light"
+            android:layout_below="@id/departmentdetail_about"/>
+
+        <TextView
+            android:id="@+id/departmentdetail_email_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separator_dummy1"
+            android:text="Email"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/app_secondary_accent"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/departmentdetail_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/departmentdetail_email_label"
+            android:text="nevil.prajapati89@gmail.com"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/separator_dummy5"
+            android:background="@color/butter_bar_light"
+            android:layout_below="@id/departmentdetail_email"/>
+
+        <TextView
+            android:id="@+id/departmentdetail_contact_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separator_dummy5"
+            android:text="Contact"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/app_secondary_accent"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/departmentdetail_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/departmentdetail_contact_label"
+            android:text="079-220237458"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textStyle="bold"
+            android:layout_column="1"
+            android:paddingLeft="10dp" />
+
+    </RelativeLayout>
+
+</FrameLayout>

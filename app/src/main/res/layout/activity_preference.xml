@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/group_drawer_layout"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fitsSystemWindows="true" tools:openDrawer="start">-->
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/preference_main_container"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fitsSystemWindows="true" tools:context="com.ldceconnect.ldcecommunity.ExploreCommunity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <android.support.design.widget.AppBarLayout android:id="@+id/preference_appbar"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:theme="@style/Theme.IOSched.AppBarOverlay"
+            android:background="@color/app_secondary_accent">
+
+            <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+                android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+                android:background="@color/app_secondary_accent"
+                app:popupTheme="@style/Theme.IOSched.PopupOverlay"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+            </android.support.v7.widget.Toolbar>
+
+            <!--<View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/toolbar_shadow" />-->
+
+            <!-- Empty Collection view -->
+        </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/card_bg"
+        android:layout_below="@+id/preference_appbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayout_dummy"
+                android:paddingTop="10dp"
+                >
+
+                <MultiAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:lines="4"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="20dp"
+                    android:hint="What kind of content do you like ?"
+                    android:id="@+id/preference_interests"
+                    android:completionThreshold="1"
+                    android:visibility="visible"
+                    android:textColor="@color/ldce_dark_blue"
+                    android:background="@android:color/transparent" />
+
+                <MultiAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="false"
+                    android:lines="4"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:hint="What kind of groups do you like ?"
+                    android:id="@+id/preference_grouptypes"
+                    android:completionThreshold="1"
+                    android:visibility="gone"
+                    android:background="@android:color/transparent"
+                    android:layout_below="@id/preference_interests"/>
+
+            </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:id="@+id/preference_container"
+            android:background="@color/app_white"
+            android:layout_alignParentStart="true"
+            android:layout_margin="0dp"
+            android:layout_below="@+id/relativeLayout_dummy">
+
+            <Spinner
+                android:id="@+id/preference_department_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/ldce_dark_blue"
+                android:layout_marginBottom="5dp" />
+
+            <Spinner
+                android:id="@+id/preference_degree_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/ldce_dark_blue"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@+id/preference_department_spinner"/>
+
+            <Spinner
+                android:id="@+id/preference_program_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/ldce_dark_blue"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@+id/preference_degree_spinner"/>
+
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show email id"
+                android:layout_marginTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="12dp"
+                android:textColor="@color/ldce_dark_blue"
+                android:id="@+id/preference_show_email_switch"
+                android:textSize="17sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/preference_program_spinner"/>
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show contact number"
+                android:layout_marginTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="12dp"
+                android:textColor="@color/ldce_dark_blue"
+                android:id="@+id/preference_show_mobile_switch"
+                android:textSize="17sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/preference_show_email_switch"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/dummySection"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/preference_container">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_done"
+                android:id="@+id/preference_submit_button"
+                android:background="@drawable/round_button"
+                android:padding="5dp"
+                android:layout_marginStart="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/preference_close_button" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_close"
+                android:id="@+id/preference_close_button"
+                android:background="@drawable/round_button"
+                android:padding="10dp"
+                android:layout_marginStart="105dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+
+        <!--<android.support.design.widget.NavigationView android:id="@+id/nav_sidemenu_department"
+            android:layout_width="wrap_content" android:layout_height="match_parent"
+            android:layout_gravity="start" android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_side_drawer"
+            app:menu="@menu/menu_explore_community" />-->
+        </RelativeLayout>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+

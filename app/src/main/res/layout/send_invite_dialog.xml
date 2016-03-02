@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+    android:id="@+id/send_invite_container">
+
+
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="From"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/from_label"
+    android:textStyle="bold"
+        />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/send_invite_from_email"
+            android:layout_marginLeft="10dp"
+            android:text="nevil.prajapati89@gmail.com"
+            android:checked="true"
+            android:layout_below="@+id/from_label"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/to_label"
+        android:textStyle="bold"
+        android:layout_below="@+id/send_invite_from_email"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/send_invite_email_input"
+        android:layout_below="@+id/to_label"
+        android:inputType="textEmailAddress"
+        android:hint="Type email to send invite"
+        android:textSize="15sp"/>
+
+    </RelativeLayout>

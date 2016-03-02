@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:gravity="center_horizontal"
+    android:orientation="vertical" android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.ldceconnect.ldcecommunity.EditProfileActivity"
+    android:background="?colorPrimary">
+
+    <!-- Login progress -->
+    <ProgressBar android:id="@+id/register_progress" style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" android:visibility="gone"/>
+
+
+    <ScrollView android:id="@+id/edit_profile_form" android:layout_width="match_parent"
+        android:layout_height="472dp"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout android:id="@+id/email_register_form" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/header_imageview"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="centerInside"
+                    />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="20dp"
+                    android:text="Change Picture"
+                    android:id="@+id/header_uploadbutton"
+                    android:paddingTop="2dp"
+                    android:gravity="center"
+                    android:background="@drawable/rect_button_white"
+                    android:layout_alignBottom="@+id/header_imageview"
+                    android:layout_alignStart="@+id/header_imageview" />
+
+                <TextView
+                    android:id="@+id/header_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/header_imageview"
+                    android:layout_centerHorizontal="true"
+                    android:textAlignment="center" />
+
+
+            </RelativeLayout>
+
+            <Spinner
+                android:id="@+id/degree_spinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:textColor="@color/secondary_text_default_material_light"/>
+
+            <Spinner
+                android:id="@+id/program_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="@color/secondary_text_default_material_light"/>
+
+            <Spinner
+                android:id="@+id/department_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="@color/secondary_text_default_material_light" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:maxLength="10"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/edit_profile_contact"
+                android:singleLine="false"
+                android:hint="Mobile No"
+                android:numeric="integer" />
+
+
+            <MultiAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Type your interests hash tags #interest"
+                android:id="@+id/multiAutoCompleteTextView"
+                android:completionThreshold="1"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button android:id="@+id/next_button" style="?android:textAppearanceSmall"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Finish"
+            android:textStyle="bold"
+            android:background="@drawable/rect_round_button"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+</LinearLayout>

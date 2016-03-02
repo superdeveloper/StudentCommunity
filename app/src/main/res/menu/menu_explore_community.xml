@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ldceconnect.ldcecommunity.ExploreCommunity">
+    <group>
+        <item android:id="@+id/nav_profile" android:icon="@drawable/ic_person_black"
+            android:title="My Profile" />
+        <item android:id="@+id/nav_groups" android:icon="@drawable/group_icon_medium"
+            android:title="My Groups" />
+        <item android:id="@+id/nav_threads" android:icon="@drawable/ic_map_sandbox"
+            android:title="My Posts" />
+        <item android:id="@+id/nav_starred_threads" android:icon="@drawable/ratingbar_star_on_default"
+            android:title="Starred" />
+        <item android:id="@+id/nav_preferences" android:icon="@drawable/ic_tune_black_36dp"
+            android:title="Settings" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item android:id="@+id/nav_share" android:icon="@drawable/ic_share_black_36dp"
+                android:title="Share" />
+            <item android:id="@+id/nav_send" android:icon="@drawable/ic_send_black_36dp"
+                android:title="Invite Friends" />
+            <item android:id="@+id/nav_feedback" android:icon="@drawable/ic_feedback"
+                android:title="Feedback" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/nav_logout" android:icon="@drawable/ic_logout"
+        android:title="Sign out" />
+
+</menu>

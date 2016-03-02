@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".NavigationDrawerActivity">
+    <item android:id="@+id/action_group_join" android:title="Join Group"
+        android:orderInCategory="100" app:showAsAction="never"
+        android:visible="false"/>
+    <item android:id="@+id/action_group_add_member" android:title="Add Member"
+        android:orderInCategory="100" app:showAsAction="never"
+        android:visible="false"/>
+    <item android:id="@+id/action_group_leave" android:title="Leave Group"
+        android:orderInCategory="100" app:showAsAction="never"
+        android:visible="false"/>
+    <item android:id="@+id/action_group_delete" android:title="Delete Group"
+        android:orderInCategory="100" app:showAsAction="never"
+        android:visible="false" />
+    <item android:id="@+id/action_refresh_data" android:title="@string/action_refresh"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>

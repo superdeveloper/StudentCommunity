@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="false">
+        <layer-list >
+            <item>
+                <shape android:shape="rectangle">
+                    <gradient android:angle="90"
+                        android:endColor="@color/app_secondary_accent" android:startColor="#668000" />
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+
+            <item
+                android:left="0dp"
+                android:right="1.5dp"
+                android:top="0dp"
+                android:bottom="1.5dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/app_secondary_accent"/>
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+
+        </layer-list>
+    </item>
+
+    <item android:state_pressed="true">
+        <layer-list >
+            <item>
+                <shape android:shape="rectangle">
+                    <gradient android:angle="90"
+                        android:endColor="@color/app_secondary_accent" android:startColor="#668000" />
+                    <stroke android:width="2px"
+                        android:color="@color/app_primary_accent" />
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/app_secondary_accent_light"/>
+                    <stroke android:width="2px"
+                        android:color="@color/app_primary_accent" />
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+
+        </layer-list>
+
+
+
+    </item>
+
+</selector>
