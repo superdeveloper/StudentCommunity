@@ -39,7 +39,8 @@ public class ApplicationModel {
         CARD_POST_MESSAGE,
         CARD_NONE,
         CARD_PROGRESS,
-        CARD_ERROR
+        CARD_ERROR,
+        CARD_CALENDARITEM
     }
 
     public enum SearchContext

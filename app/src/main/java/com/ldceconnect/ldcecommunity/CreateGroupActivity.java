@@ -1,5 +1,7 @@
 package com.ldceconnect.ldcecommunity;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Intent;
@@ -8,9 +10,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+
+import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -212,8 +213,8 @@ public class CreateGroupActivity extends AppCompatActivity {
 
             Bitmap b = BitmapFactory.decodeFile(abPath);
 
-            if(b != null && ( b.getHeight() < 300 || b.getWidth() < 300))
-                b = Bitmap.createScaledBitmap(b,300,300,false);
+            /*if(b != null && ( b.getHeight() < 300 || b.getWidth() < 300))
+                b = Bitmap.createScaledBitmap(b,300,300,false);*/
 
             String fileName;
             fileName = ParserUtils.getFileNameFromPath(abPath);
@@ -223,8 +224,9 @@ public class CreateGroupActivity extends AppCompatActivity {
             LoadDataModel.uploadImageFileName = fileName;
 
             if( b != null ) {
-                RoundedAvatarDrawable rd = new RoundedAvatarDrawable(b);
-                mImageView.setImageDrawable(rd);
+                //RoundedAvatarDrawable rd = new RoundedAvatarDrawable(b);
+                //mImageView.setAdjustViewBounds(false);
+                mImageView.setImageBitmap(b);
             }
             return true;
         } else if (resultCode == Crop.RESULT_ERROR) {
@@ -319,7 +321,7 @@ public class CreateGroupActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFrag(new StudentFragment(this,getResources().getColor(R.color.app_white), LoadDataModel.LoadContext.LOAD_SEARCH_MEMBERS), getString(R.string.title_tab_groups));
         viewPager.setAdapter(adapter);
     }

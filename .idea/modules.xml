@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/KenBurnsView/KenBurnsView.iml" filepath="$PROJECT_DIR$/KenBurnsView/KenBurnsView.iml" />
       <module fileurl="file://$PROJECT_DIR$/StudentCommunity.iml" filepath="$PROJECT_DIR$/StudentCommunity.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/croplib/croplib.iml" filepath="$PROJECT_DIR$/croplib/croplib.iml" />

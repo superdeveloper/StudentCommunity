@@ -43,6 +43,9 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.ldceconnect.ldcecommunity.async.DownloadImage;
 import com.ldceconnect.ldcecommunity.async.DownloadImages;
 import com.ldceconnect.ldcecommunity.async.LoadDataAsync;
@@ -58,6 +61,7 @@ import com.ldceconnect.ldcecommunity.model.LoadDataModel;
 import com.ldceconnect.ldcecommunity.model.User;
 import com.ldceconnect.ldcecommunity.model.UserModel;
 import com.ldceconnect.ldcecommunity.util.ApplicationUtils;
+import com.ldceconnect.ldcecommunity.util.CircleTransform;
 import com.ldceconnect.ldcecommunity.util.ImageFilePath;
 import com.ldceconnect.ldcecommunity.util.ImageUtils;
 import com.ldceconnect.ldcecommunity.util.ParserUtils;
@@ -103,7 +107,6 @@ public class StudentProfileActivity extends DrawerActivity {
         setContentView(R.layout.activity_student_profile);
         String title = getIntent().getStringExtra("title");
         String caller = getIntent().getStringExtra("caller");
-        //this.setCallerActivity(getIntent().getStringExtra("caller"));
 
         mProfilePicContainer = (RelativeLayout)findViewById(R.id.student_dp_container);
 
@@ -111,14 +114,6 @@ public class StudentProfileActivity extends DrawerActivity {
         ApplicationModel.AppEventModel.setProfileActiveTab(ApplicationModel.ProfileTabs.TAB_ABOUT);
 
         mImageView  = (ImageView)findViewById(R.id.header_imageview);
-
-        /* Make the image round */
-        /*final float density = getApplicationContext().getResources().getDisplayMetrics().density;
-        mCornerRadius = (int) (CORNER_RADIUS * density + 0.5f);
-        mMargin = (int) (MARGIN * density + 0.5f);
-        Bitmap image = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.avatar_small);
-        StreamDrawable d = new StreamDrawable(image, mCornerRadius , mMargin);*/
-        //img.setBackground(d);
 
         uploadButton = (TextView) findViewById(R.id.header_uploadbutton);
         nameText = (TextView) findViewById(R.id.header_name);
@@ -162,37 +157,9 @@ public class StudentProfileActivity extends DrawerActivity {
             searchIcon.setVisibility(View.GONE);
         }
 
-        if( user != null)
-        {
-            if ( user.userProfilePicBitmap != null) {
-                Bitmap b = ImageUtils.scaleImageTo(user.userProfilePicBitmap, 300, 300);
-                RoundedAvatarDrawable d = new RoundedAvatarDrawable(b);
-                mImageView.setBackground(d);
-            } else if (user.profilePictureLocalPath != null && !user.profilePictureLocalPath.isEmpty()) {
-                Bitmap b = BitmapFactory.decodeFile(user.profilePictureLocalPath);
-                if (b != null) {
-                    Bitmap b1 = ImageUtils.scaleImageTo(b, 300, 300);
-                    RoundedAvatarDrawable d = new RoundedAvatarDrawable(b1);
-                    mImageView.setBackground(d);
-                }
-            }else {
-                Bitmap imageBitmap = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.avatar_small);
-                if (imageBitmap != null) {
-                    Bitmap b = ImageUtils.scaleImageTo(imageBitmap, 300, 300);
-                    RoundedAvatarDrawable d = new RoundedAvatarDrawable(b);
-                    mImageView.setBackground(d);
-                }
-            }
+        if( user != null) {
+            Glide.with(this).load(user.profilePictureUrl).centerCrop().into(mImageView);
         }
-        else {
-            Bitmap imageBitmap = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.avatar_small);
-            if (imageBitmap != null) {
-                Bitmap b = ImageUtils.scaleImageTo(imageBitmap, 300, 300);
-                RoundedAvatarDrawable d = new RoundedAvatarDrawable(b);
-                mImageView.setBackground(d);
-            }
-        }
-
 
         /* Toolbar */
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -208,7 +175,6 @@ public class StudentProfileActivity extends DrawerActivity {
                 this, drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.setDrawerIndicatorEnabled(false);
-        mDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_ab_up_ltr);
         mDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -235,6 +201,13 @@ public class StudentProfileActivity extends DrawerActivity {
             }
         });
 
+        Glide.with(this).load(user.profilePictureUrl).asBitmap().into(new SimpleTarget<Bitmap>(200, 150) {
+            @Override
+            public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                Drawable drawable = new BitmapDrawable(bitmap);
+               // mProfilePicContainer.setBackgroundDrawable(drawable);
+            }
+        });
     }
 
     private void beginCrop(Uri source) {
@@ -277,8 +250,8 @@ public class StudentProfileActivity extends DrawerActivity {
             LoadDataModel.uploadImageLocalSourcePath = abPath;
             LoadDataModel.uploadImageFileName = fileName;
 
-            RoundedAvatarDrawable rd = new RoundedAvatarDrawable(b);
-            mImageView.setImageDrawable(rd);
+            //RoundedAvatarDrawable rd = new RoundedAvatarDrawable(b);
+            mImageView.setImageBitmap(b);
 
             if( LoadDataModel.uploadImageLocalSourcePath != null && !LoadDataModel.uploadImageLocalSourcePath.isEmpty() &&
                     LoadDataModel.uploadImageFileName != null && !LoadDataModel.uploadImageFileName.isEmpty()) {
@@ -401,7 +374,7 @@ public class StudentProfileActivity extends DrawerActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         //about
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFrag(new StudentDetailFragment(this,getResources().getColor(R.color.ldce_white)), "ABOUT");
         tabLayout.setVisibility(View.GONE);
         viewPager.setAdapter(adapter);

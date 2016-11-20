@@ -1,10 +1,11 @@
 package com.ldceconnect.ldcecommunity.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -62,12 +63,8 @@ public class StudentDetailFragment extends Fragment {
         recyclerView.setLayoutManager(mLinearLayoutManager);
 
         LoadDataModel ldm = LoadDataModel.getInstance();
-        List<Integer> listImage = new ArrayList<Integer>();
-        for (int i = 0; i < ldm.loadedUserGroups.size(); i++) {
-            listImage.add(R.drawable.group_icon_medium);
-        }
 
-        adapter = new SimpleRecyclerAdapter(activity,ldm.loadedUserGroups,ApplicationModel.CardLayout.CARD_GROUP_BIG,listImage);
+        adapter = new SimpleRecyclerAdapter(activity,ldm.loadedUserGroups,ApplicationModel.CardLayout.CARD_GROUP_BIG);
         recyclerView.setAdapter(adapter);
 
         return view;

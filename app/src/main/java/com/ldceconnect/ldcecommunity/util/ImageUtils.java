@@ -3,6 +3,8 @@ package com.ldceconnect.ldcecommunity.util;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 
 /**
  * Created by Nevil on 1/9/2016.
@@ -22,6 +24,19 @@ public class ImageUtils {
             return scaleImage(org, (float) newWidth / org.getWidth(), (float) newHeight / org.getHeight());
         else
             return null;
+    }
+
+    static public Drawable scaleDrawable(Drawable drawable, int width, int
+            height)
+    {
+        int wi = drawable.getIntrinsicWidth();
+        int hi = drawable.getIntrinsicHeight();
+        int dimDiff = Math.abs(wi - width) - Math.abs(hi - height);
+        float scale = (dimDiff > 0) ? width/(float)wi : height/
+                (float)hi;
+        Rect bounds = new Rect(0, 0, (int)(scale*wi), (int)(scale*hi));
+        drawable.setBounds(bounds);
+        return drawable;
     }
 
     /**

@@ -113,7 +113,6 @@ public class MyContentActivity extends DrawerActivity {
                 this, drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.setDrawerIndicatorEnabled(false);
-        mDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_ab_up_ltr);
         mDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -303,7 +302,7 @@ public class MyContentActivity extends DrawerActivity {
         //LoadDataModel.studentProfileViewContext = context;
 
         // Groups and Threads
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFrag(new GroupFragment(this, getResources().getColor(R.color.ldce_white), LoadDataModel.LoadContext.LOAD_USER_GROUPS), getString(R.string.title_profile_tab_groups));
         adapter.addFrag(new DiscussionFragment(this, getResources().getColor(R.color.ldce_white), LoadDataModel.LoadContext.LOAD_USER_THREADS), getString(R.string.title_profile_tab_posts));
         tabLayout.setVisibility(View.VISIBLE);

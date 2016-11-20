@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.bumptech.glide.Glide;
 import com.ldceconnect.ldcecommunity.async.DownloadImages;
 import com.ldceconnect.ldcecommunity.async.LoadDataAsync;
 import com.ldceconnect.ldcecommunity.async.UploadDataAsync;
@@ -45,6 +47,7 @@ import com.ldceconnect.ldcecommunity.model.Post;
 import com.ldceconnect.ldcecommunity.model.User;
 import com.ldceconnect.ldcecommunity.model.UserModel;
 import com.ldceconnect.ldcecommunity.util.ApplicationUtils;
+import com.ldceconnect.ldcecommunity.util.CircleTransform;
 import com.ldceconnect.ldcecommunity.util.ImageUtils;
 import com.ldceconnect.ldcecommunity.util.ParserUtils;
 import com.ldceconnect.ldcecommunity.util.PostViewHolder;
@@ -66,7 +69,6 @@ import java.util.Objects;
  * Created by Nevil on 14-04-2015.
  */
 public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAdapter.CardViewHolder>{
-    List<Integer> listImages;
     public ArrayList<?> dataModels;
 
     public CardViewHolder cardViewHolder;
@@ -88,12 +90,6 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
         this.mContext = context;
     }
 
-    public SimpleRecyclerAdapter(AppCompatActivity context,ArrayList<?> dataModels, ApplicationModel.CardLayout cardType, List<Integer> listImage) {
-        this.dataModels = dataModels;
-        this.cardType = cardType;
-        this.listImages = listImage;
-        this.mContext = context;
-    }
 
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -184,6 +180,11 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
             cardLayout = ApplicationModel.CardLayout.CARD_DISCUSSION;
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_discussions_list_item, viewGroup, false);
         }
+        else if(recyclerId == R.id.dummyfrag_calendar_scrollableview )
+        {
+            cardLayout = ApplicationModel.CardLayout.CARD_CALENDARITEM;
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_calendaritem, viewGroup, false);
+        }
         else
         {
             //String msg = "No View Selected for Card View Recycler Adapter.";
@@ -234,6 +235,9 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                     cardViewHolder.numMembersIcon.setVisibility(View.VISIBLE);
                 if( cardViewHolder.numPostsIcon != null)
                     cardViewHolder.numPostsIcon.setVisibility(View.VISIBLE);
+                if( cardViewHolder.mDraweeView!= null)
+                    cardViewHolder.mDraweeView.setVisibility(View.VISIBLE);
+
 
                 showProgress = false;
 
@@ -242,63 +246,46 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                     if ( dataModels != null && dataModels.size() > 0 ) {
                         if( dataModels.get(0) != null && dataModels.get(0).getClass() == Department.class) {
                             Department d = (Department) dataModels.get(i);
-                            cardViewHolder.title.setText(d.name);
-                            cardViewHolder.subTitle.setText(d.nummembers + " " + "Students");
-                            LoadDataModel ldm = LoadDataModel.getInstance();
-                            if(cardViewHolder.itemImage != null && d != null && d.deptimageurl != null && !d.deptimageurl.isEmpty()) {
+                            if( d != null) {
+                                cardViewHolder.title.setText(d.name);
+                                cardViewHolder.subTitle.setText(d.nummembers + " " + "Students");
+                                LoadDataModel ldm = LoadDataModel.getInstance();
 
-                                if(ldm.loadedDepartmentImages.size() > 0) {
-                                    RoundedAvatarDrawable rd = ldm.loadedDepartmentImages.get("dept_" + d.id);
-                                    if (rd != null) {
-                                        cardViewHolder.itemImage.setImageDrawable(rd);
-                                    }
-                                    else
-                                    {
-                                        cardViewHolder.itemImage.setImageDrawable(ldm.loadedDefaultDepartmentThumb);
-
-                                        /*ArrayList<String> fileNames = new ArrayList<>();
-                                        fileNames.add("dept_" + d.id + ".png");
-
-                                        ArrayList<String> filePaths = ParserUtils.getUploadFilePathsFromFilenames(fileNames);
-                                        new DownloadImages(mContext,filePaths, DownloadImages.DownloadImagesContext.DOWNLOAD_DEPARTMENT_IMAGES);*/
-                                    }
+                                if (cardViewHolder.mDraweeView != null) {
+                                    Glide.with(mContext).load(d.deptimageurl).transform(new CircleTransform(mContext)).into(cardViewHolder.mDraweeView);
                                 }
                             }
-
                         }
-
-
                     }
                     break;
                 case CARD_DISCUSSION:
                     if (dataModels != null && dataModels.size() > 0 ) {
                         if( dataModels.get(0) != null && dataModels.get(0).getClass() == Discussion.class) {
                             Discussion d = (Discussion) dataModels.get(i);
-                            String title = d.title;
-                            if( d.title.length() > 80)
-                                title = d.title.substring(0,80) + "...";
-                            cardViewHolder.title.setText(title);
-                            if( d.parentgroupname != null && d.parentgroupname != "null")
-                                cardViewHolder.subTitle.setText(d.parentgroupname);
-                            else
-                                cardViewHolder.subTitle.setText("");
+                            if( d != null) {
+                                String title = d.title;
+                                if (d.title.length() > 80)
+                                    title = d.title.substring(0, 80) + "...";
+                                cardViewHolder.title.setText(title);
+                                if (d.parentgroupname != null && d.parentgroupname != "null")
+                                    cardViewHolder.subTitle.setText(d.parentgroupname);
+                                else
+                                    cardViewHolder.subTitle.setText("");
 
-                            Class c = mContext.getClass();
+                                Class c = mContext.getClass();
 
-                            if( cardViewHolder.starImage != null && c == ExploreCommunity.class ) {
+                                if (cardViewHolder.starImage != null && c == ExploreCommunity.class) {
 
-
-                                LoadDataModel ldm = LoadDataModel.getInstance();
-
-                                if( LoadDataModel.starredThreadsList != null) {
-                                    if (ParserUtils.findStringInList(LoadDataModel.starredThreadsList, d.id) >= 0) {
-                                        Bitmap b = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ratingbar_star_on_green);
-                                        ImageView im = cardViewHolder.starImage;
-                                        im.setImageBitmap(b);
-                                    } else {
-                                        Bitmap b = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ratingbar_star_off_default);
-                                        ImageView im = cardViewHolder.starImage;
-                                        im.setImageBitmap(b);
+                                    if (LoadDataModel.starredThreadsList != null) {
+                                        if (ParserUtils.findStringInList(LoadDataModel.starredThreadsList, d.id) >= 0) {
+                                            Bitmap b = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ratingbar_star_on_green);
+                                            ImageView im = cardViewHolder.starImage;
+                                            im.setImageBitmap(b);
+                                        } else {
+                                            Bitmap b = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.follow_icon);
+                                            ImageView im = cardViewHolder.starImage;
+                                            im.setImageBitmap(b);
+                                        }
                                     }
                                 }
                             }
@@ -310,39 +297,15 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                     if (dataModels != null && dataModels.size() > 0 ) {
                         if( dataModels.get(0) != null && dataModels.get(0).getClass() == Group.class) {
                             Group g = (Group) dataModels.get(i);
-                            cardViewHolder.title.setText(g.name);
-                            if( cardViewHolder.subTitle != null)
-                                cardViewHolder.subTitle.setText(g.numthreads + " Posts");
-                            if(cardViewHolder.numThreadsSubtitle != null)
-                                cardViewHolder.numThreadsSubtitle.setText(g.nummembers + " Members");
+                            if( g != null ) {
+                                cardViewHolder.title.setText(g.name);
+                                if (cardViewHolder.subTitle != null)
+                                    cardViewHolder.subTitle.setText(g.numthreads + " Posts");
+                                if (cardViewHolder.numThreadsSubtitle != null)
+                                    cardViewHolder.numThreadsSubtitle.setText(g.nummembers + " Members");
 
-                            LoadDataModel ldm = LoadDataModel.getInstance();
-
-                            Map<String,RoundedAvatarDrawable> groupImages = null;
-
-                            if( mContext.getClass() == ExploreCommunity.class || mContext.getClass() == MyContentActivity.class
-                                    || mContext.getClass() == StudentProfileActivity.class )
-                            {
-                                groupImages = ldm.loadedGroupImageThumbs;
-                            }
-                            /*else
-                            {
-                                groupImages = ldm.loadedGroupImages;
-                            }*/
-
-                            if(cardViewHolder.itemImage != null && g != null && g.groupimageurl != null && !g.groupimageurl.isEmpty()
-                                    && groupImages != null ) {
-                                if(groupImages.size() > 0) {
-                                    RoundedAvatarDrawable rd = groupImages.get("group_" + g.id);
-                                    if (rd != null) {
-                                        //RoundedAvatarDrawable rd1 = rd.createCloneDrawable(120,120);
-                                        //rd.setBounds(90,90,120,120);
-                                        cardViewHolder.itemImage.setImageDrawable(rd);
-                                    }
-                                    else
-                                    {
-                                        cardViewHolder.itemImage.setImageDrawable(ldm.loadedDefaultGroupThumb);
-                                    }
+                                if (cardViewHolder.mDraweeView != null) {
+                                    Glide.with(mContext).load(g.groupimageurl).transform(new CircleTransform(mContext)).into(cardViewHolder.mDraweeView);
                                 }
                             }
                         }
@@ -377,46 +340,11 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                     if (dataModels != null && dataModels.size() > 0 ) {
                         if( dataModels.get(0) != null && dataModels.get(0).getClass() == User.class) {
                             User u = (User) dataModels.get(i);
-                            cardViewHolder.title.setText(u.fname + " " + u.lname);
+                            if( u != null) {
+                                cardViewHolder.title.setText(u.fname + " " + u.lname);
 
-                            LoadDataModel ldm = LoadDataModel.getInstance();
-
-                            if(cardViewHolder.itemImage != null  ) {
-                                //cardViewHolder.itemImage.setBackgroundResource(listImages.get(i));
-                                UserModel um = UserModel.getInstance();
-                                if(u.email != null && !u.email.isEmpty()) {
-                                    if(ldm.loadedUserThumbs.size() > 0) {
-                                        Bitmap b = ldm.loadedUserThumbs.get(u.email);
-                                        if (b != null) {
-                                            RoundedAvatarDrawable d = new RoundedAvatarDrawable(b);
-                                            cardViewHolder.itemImage.setImageDrawable(d);
-                                        }
-                                        else
-                                        {
-
-
-                                            b = BitmapFactory.decodeResource(mContext.getResources(),R.drawable.avatar_small);
-                                            b = ImageUtils.scaleImageTo(b,100,100);
-                                            RoundedAvatarDrawable rd = new RoundedAvatarDrawable(b);
-                                            cardViewHolder.itemImage.setImageDrawable(rd);
-
-
-                                            /*ArrayList<String> currentFragmentUser = new ArrayList<>();
-                                            currentFragmentUser.add(u.email);
-
-                                            ArrayList<String> fileNames = ParserUtils.getFilenamesFromUserNames(currentFragmentUser,"_thumb");
-
-                                            ArrayList<String> filePaths = ParserUtils.getUploadFilePathsFromFilenames(fileNames);
-                                            new DownloadImages(mContext,filePaths, DownloadImages.DownloadImagesContext.DOWNLOAD_STUDENT_THUMBS);*/
-                                        }
-                                    }
-                                }else
-                                {
-                                    Bitmap b = BitmapFactory.decodeResource(mContext.getResources(),R.drawable.avatar_small);
-                                    if (b != null) {
-                                        RoundedAvatarDrawable d = new RoundedAvatarDrawable(b);
-                                        cardViewHolder.itemImage.setImageDrawable(d);
-                                    }
+                                if (cardViewHolder.mDraweeView != null) {
+                                    Glide.with(mContext).load(u.profilePictureUrl).transform(new CircleTransform(mContext)).into(cardViewHolder.mDraweeView);
                                 }
                             }
                         }
@@ -440,11 +368,25 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                         }
                     }
                     break;
+                case CARD_CALENDARITEM:
+                    if (dataModels != null && dataModels.size() > 0 ) {
+                        if (dataModels.get(0) != null && dataModels.get(0).getClass() == Discussion.class) {
+                            Discussion d = (Discussion) dataModels.get(i);
+                            if( d != null) {
+                                String title = d.title;
+                                if (d.title.length() > 80)
+                                    title = d.title.substring(0, 80) + "...";
+                                cardViewHolder.title.setText(title);
+                            }
+                        }
+                    }
+                    break;
 
             }
 
         }
         else if(dataModels.get(i) == null){
+
             // datamodel is null for showing progress card
             if(cardViewHolder.title != null)
                 cardViewHolder.title.setVisibility(View.GONE);
@@ -470,6 +412,8 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 cardViewHolder.numMembersIcon.setVisibility(View.GONE);
             if( cardViewHolder.numPostsIcon != null)
                 cardViewHolder.numPostsIcon.setVisibility(View.GONE);
+            if( cardViewHolder.mDraweeView!= null)
+                cardViewHolder.mDraweeView.setVisibility(View.GONE);
 
             showProgress = true;
 
@@ -489,8 +433,12 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
 
     @Override
     public int getItemCount() {
-        int itemCount = dataModels.size();
-        return itemCount;
+        if( dataModels != null) {
+            int itemCount = dataModels.size();
+            return itemCount;
+        }
+        else
+            return 0;
     }
 
 
@@ -525,6 +473,8 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
         ImageView numPostsIcon;
         ImageView numMembersIcon;
 
+        ImageView mDraweeView;
+
         public CardViewHolder(View itemView, ApplicationModel.CardLayout cardLayout) {
             super(itemView);
 
@@ -551,7 +501,8 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 cardItemLayout = (CardView) itemView.findViewById(R.id.department_cardlist_item);
                 title = (TextView) itemView.findViewById(R.id.department_listeitem_name);
                 subTitle = (TextView) itemView.findViewById(R.id.department_listeitem_subname);
-                itemImage = (ImageView) itemView.findViewById(R.id.department_listeitem_imagecontainer);
+                //itemImage = (ImageView) itemView.findViewById(R.id.department_listeitem_imagecontainer);
+                mDraweeView = (ImageView) itemView.findViewById(R.id.department_listeitem_imagecontainer);
 
                 cardItemLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -583,10 +534,11 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 cardItemLayout = (CardView) itemView.findViewById(R.id.group_cardlist_item);
                 title = (TextView) itemView.findViewById(R.id.group_listitem_name);
                 subTitle = (TextView) itemView.findViewById(R.id.group_listitem_subname);
-                itemImage = (ImageView) itemView.findViewById(R.id.group_listitem_imagecontainer);
+                //itemImage = (ImageView) itemView.findViewById(R.id.group_listitem_imagecontainer);
                 numThreadsSubtitle = (TextView) itemView.findViewById((R.id.group_listitem_subitem));
                 numPostsIcon = (ImageView) itemView.findViewById(R.id.group_listitem_posts_icon);
                 numMembersIcon = (ImageView) itemView.findViewById(R.id.group_listitem_persons_icon);
+                mDraweeView = (ImageView) itemView.findViewById(R.id.group_listitem_imagecontainer);
 
                 if( cardLayout != ApplicationModel.CardLayout.CARD_GROUP_BIG) {
                     cardItemLayout.setOnClickListener(new View.OnClickListener() {
@@ -712,12 +664,20 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 subTitle = (TextView) itemView.findViewById(R.id.discussion_listitem_subname_small);
                 //itemImage = (ImageView) itemView.findViewById(R.id.discussion_listitem_imagecontainer_small);
             }
+            else if( cardLayout == ApplicationModel.CardLayout.CARD_CALENDARITEM)
+            {
+                cardItemLayout = (CardView) itemView.findViewById(R.id.calendar_cardlist_item);
+                title = (TextView) itemView.findViewById(R.id.calendar_listitemname);
+                subTitle = (TextView) itemView.findViewById(R.id.calendar_listitemsubname);
+                //itemImage = (ImageView) itemView.findViewById(R.id.discussion_listitem_imagecontainer_small);
+            }
             else if( cardLayout == ApplicationModel.CardLayout.CARD_STUDENT )
             {
                 cardItemLayout = (CardView) itemView.findViewById(R.id.student_cardlist_item);
                 title = (TextView) itemView.findViewById(R.id.student_listitem_name);
                 //subTitle = (TextView) itemView.findViewById(R.id.student_listitem_subname);
-                itemImage = (ImageView) itemView.findViewById(R.id.student_listitem_imagecontainer);
+                //itemImage = (ImageView) itemView.findViewById(R.id.student_listitem_imagecontainer);
+                mDraweeView = ( ImageView) itemView.findViewById(R.id.student_listitem_imagecontainer);
 
                 cardItemLayout.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override

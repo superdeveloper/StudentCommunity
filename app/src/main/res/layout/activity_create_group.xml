@@ -28,7 +28,8 @@
                 android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
                 android:background="@color/app_secondary_accent"
                 app:popupTheme="@style/Theme.IOSched.PopupOverlay"
-                app:layout_scrollFlags="scroll|enterAlways">
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:visibility="gone">
 
             </android.support.v7.widget.Toolbar>
 
@@ -40,12 +41,8 @@
             <!-- Empty Collection view -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="5dp"
-                android:paddingBottom="2dp"
                 android:gravity="center_vertical"
-                android:layout_height="100dp"
+                android:layout_height="200dp"
                 android:orientation="vertical"
                 android:weightSum="1"
                 android:id="@+id/linearLayout"
@@ -57,13 +54,15 @@
 
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:id="@+id/creategroup_imagecontainer"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentStart="true"
                         android:src="@drawable/group_icon"
-                        android:layout_alignParentTop="true" />
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:scaleType="centerCrop" />
 
                     <TextView
                         android:layout_width="80dp"
@@ -74,8 +73,8 @@
                         android:paddingTop="2dp"
                         android:gravity="center"
                         android:background="@drawable/rect_button_white"
-                        android:layout_alignBottom="@+id/creategroup_imagecontainer"
-                        android:layout_alignStart="@+id/creategroup_imagecontainer" />
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true" />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -86,11 +85,9 @@
                         android:lines="2"
                         android:maxLength="40"
                         android:background="@android:color/transparent"
-                        android:paddingLeft="5dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:paddingRight="20dp"
-                        android:layout_toEndOf="@+id/creategroup_imagecontainer" />
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_alignBottom="@+id/creategroup_imagecontainer" />
 
                     <!--<TextView
                         android:id="@+id/creategroup_listitem_name"

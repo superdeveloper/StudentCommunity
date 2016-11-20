@@ -1,1 +1,1 @@
-include ':croplib',':app'
+include ':croplib', ':app', ':KenBurnsView'

@@ -16,16 +16,20 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <RelativeLayout
+        android:id="@+id/rel_main"
+        android:layout_width="match_parent"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="5dp"
-        android:paddingBottom="5dp"
-        android:gravity="center_vertical"
+        android:paddingBottom="50dp"
         android:layout_height="wrap_content"
         android:minHeight="?attr/listPreferredItemHeightLarge"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="290dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/relativeLayout"
             android:layout_alignParentTop="true"
@@ -41,15 +45,17 @@
                     android:textSize="@dimen/abc_text_size_subhead_material"
                     android:clickable="false"
                     android:paddingTop="3dp"
+                    android:layout_marginRight="40dp"
                     android:layout_alignBottom="@+id/list_progress"
                     android:layout_alignParentStart="true" />
 
             <TextView
                 android:id="@+id/discussion_listitemparentgroup"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Group"
                 android:paddingTop="3dp"
+                android:layout_marginRight="40dp"
                 android:textStyle="italic"
                 android:textColor="@color/secondary_text_default_material_light"
                 android:textSize="@dimen/abc_text_size_caption_material"
@@ -57,10 +63,11 @@
                 android:layout_below="@+id/discussion_listitemname"/>
 
 
-                <!--<TextView
+                <TextView
                     android:id="@+id/discussion_listitemsubname"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
                     android:text="#tags"
                     android:paddingTop="3dp"
                     android:textStyle="italic"
@@ -68,7 +75,7 @@
                     android:textSize="@dimen/abc_text_size_caption_material"
                     android:layout_column="1"
                     android:layout_below="@+id/discussion_listitemparentgroup"
-                     />-->
+                     />
 
             <ProgressBar android:id="@+id/list_progress" style="?android:attr/progressBarStyleLarge"
                 android:layout_width="50dp" android:layout_height="50dp"
@@ -83,72 +90,38 @@
             android:layout_height="40dp"
             android:padding="10dp"
             android:id="@+id/discussion_cardlist_item_star"
-            android:src="@drawable/ratingbar_star_off_default"
+            android:src="@drawable/follow_icon"
             android:layout_alignTop="@+id/relativeLayout"
             android:layout_alignParentEnd="true" />
 
-        <!--<RelativeLayout
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:id="@+id/relativeLayout1"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true">
+    </RelativeLayout>
 
-            <ImageView
-            android:layout_width="25dp"
-            android:layout_height="30dp"
-            android:id="@+id/discussion_cardlist_item_upvote"
-                android:src="@drawable/up"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true" />
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="30dp"
-                android:id="@+id/discussion_cardlist_item_downvote"
-                android:src="@drawable/down"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true" />
-
-        </RelativeLayout>-->
-
-
-
-        <!--<TextView
-            android:id="@+id/discussion_cardlist_item_stars_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="225"
-            android:textSize="@dimen/abc_text_size_caption_material"
-            android:clickable="false"
-            android:paddingTop="3dp"
-            android:paddingLeft="3dp"
-            android:layout_alignTop="@+id/discussion_cardlist_item_star"
-            android:layout_toEndOf="@+id/discussion_cardlist_item_star"
-            android:textColor="@color/secondary_text_default_material_light"/>
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:id="@+id/discussion_cardlist_item_comments"
-            android:src="@drawable/comments_icon"
-            android:layout_marginStart="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/discussion_cardlist_item_stars_count" />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/discussion_ownerimage_container"
+        android:src="@drawable/avatar"
+        android:layout_alignBottom="@+id/rel_main"
+        android:layout_alignParentLeft="true" />
 
         <TextView
-            android:id="@+id/discussion_cardlist_item_comments_count"
-            android:layout_width="wrap_content"
+            android:id="@+id/discussion_owner_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="225"
-            android:textSize="@dimen/abc_text_size_caption_material"
-            android:clickable="false"
+            android:text="Nevil Prajapati"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="80dp"
             android:paddingTop="3dp"
-            android:paddingLeft="3dp"
-            android:layout_alignTop="@+id/discussion_cardlist_item_star"
-            android:layout_toEndOf="@+id/discussion_cardlist_item_comments"
-            android:textColor="@color/secondary_text_default_material_light"/>-->
+            android:textStyle="italic"
+            android:textColor="@color/secondary_text_default_material_light"
+            android:textSize="16sp"
+            android:layout_toEndOf="@+id/discussion_ownerimage_container"
+            android:layout_alignTop="@+id/discussion_ownerimage_container"
+            />
 
     </RelativeLayout>
+
 
 </android.support.v7.widget.CardView>

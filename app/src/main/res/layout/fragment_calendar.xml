@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dummyfrag_calendar_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_white">
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/app_white"
+        android:id="@+id/calendar_day_title"
+        android:text="23rd December"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/app_primary_text"
+        android:paddingTop="7dp"/>
+
+        <TextView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/edit"
+            android:id="@+id/calendar_day_icon"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dummyfrag_calendar_scrollableview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/calendar_day_title"/>
+
+    </RelativeLayout>
+</FrameLayout>

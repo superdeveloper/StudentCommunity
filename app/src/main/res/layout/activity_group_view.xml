@@ -21,29 +21,9 @@
         <android.support.design.widget.AppBarLayout android:id="@+id/groupdetails_appbar"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:theme="@style/Theme.IOSched.AppBarOverlay"
-            android:background="@color/app_secondary_accent">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
-                    android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-                    android:background="@color/app_secondary_accent"
-                    app:popupTheme="@style/Theme.IOSched.PopupOverlay"
-                    app:layout_scrollFlags="scroll|enterAlways"
-                    android:title="@string/title_toolbar_group_details"/>
+            android:background="@color/app_white">
 
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:id="@+id/toolbar_search_icon"
-                        android:src="@drawable/ic_action_search"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="40dp"/>
-                </RelativeLayout>
 
             <!--<View
                 android:layout_width="match_parent"
@@ -52,29 +32,30 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:id="@+id/header_container">
+
 
                 <ImageView
                     android:id="@+id/groupdetails_header_imageview"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:paddingBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true" />
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/app_primary_accent"/>
 
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="80dp"
                     android:layout_height="20dp"
-                    android:text="Change Picture"
+                    android:text="Change"
                     android:id="@+id/groupdetails_uploadbutton"
                     android:paddingTop="2dp"
                     android:gravity="center"
                     android:background="@drawable/rect_button_white"
                     android:layout_alignBottom="@+id/groupdetails_header_imageview"
-                    android:layout_alignStart="@+id/groupdetails_header_imageview"
-                    android:visibility="gone"/>
+                    android:layout_alignParentEnd="true"
+                    android:visibility="gone"
+                    />
 
                 <TextView
                     android:id="@+id/header_name"
@@ -82,13 +63,11 @@
                     android:layout_height="wrap_content"
                     android:text="Test Group"
                     android:textSize="25sp"
-                    android:textStyle="bold"
                     android:paddingLeft="10dp"
                     android:paddingRight="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/app_primary_accent"
-                    android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/groupdetails_header_imageview" />
+                    android:textColor="@color/app_white"
+                    android:layout_above="@+id/groupview_persons_icon"
+                    android:layout_alignParentStart="true" />
 
                 <ImageView
                     android:id="@+id/groupview_persons_icon"
@@ -97,9 +76,9 @@
                     android:src="@drawable/ic_person_black"
                     android:paddingBottom="1dp"
                     android:paddingLeft="5dp"
-                    android:tint="@color/ldce_dark_grey"
-                    android:layout_alignTop="@+id/header_posts_count"
-                    android:layout_toEndOf="@+id/header_posts_count"/>
+                    android:tint="@color/app_white"
+                    android:layout_toEndOf="@+id/header_posts_count"
+                    android:layout_alignBottom="@+id/groupdetails_header_imageview"/>
 
                 <TextView
                     android:id="@+id/header_members_count"
@@ -109,9 +88,9 @@
                     android:textSize="15sp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:textColor="@color/app_primary_accent"
-                    android:layout_alignTop="@+id/header_posts_count"
-                    android:layout_toEndOf="@+id/groupview_persons_icon" />
+                    android:textColor="@color/app_white"
+                    android:layout_toEndOf="@+id/groupview_persons_icon"
+                    android:layout_alignBottom="@+id/groupdetails_header_imageview"/>
 
                 <ImageView
                     android:id="@+id/groupview_posts_icon"
@@ -119,11 +98,9 @@
                     android:layout_height="20dp"
                     android:src="@drawable/ic_feedback"
                     android:paddingTop="3dp"
-                    android:layout_marginLeft="5dp"
-                    android:tint="@color/ldce_dark_grey"
-                    android:layout_below="@+id/group_listitem_name"
-                    android:layout_toEndOf="@+id/groupdetails_header_imageview"
-                    android:layout_alignTop="@+id/header_posts_count" />
+                    android:layout_marginLeft="10dp"
+                    android:tint="@color/app_white"
+                    android:layout_alignBottom="@+id/groupdetails_header_imageview"/>
 
                 <TextView
                     android:id="@+id/header_posts_count"
@@ -133,15 +110,38 @@
                     android:textSize="15sp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:textColor="@color/app_primary_accent"
-                    android:layout_alignBottom="@+id/groupdetails_header_imageview"
-                    android:layout_toRightOf="@+id/groupview_posts_icon" />
+                    android:textColor="@color/app_white"
+                    android:layout_toEndOf="@+id/groupview_posts_icon"
+                    android:layout_alignBottom="@+id/groupdetails_header_imageview"/>
+
+                <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+                    android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/Theme.IOSched.PopupOverlayTransparent"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    android:layout_alignTop="@+id/groupdetails_header_imageview"
+                    />
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/toolbar_search_icon"
+                    android:src="@drawable/ic_action_search"
+                    android:layout_marginRight="40dp"
+                    android:tint="@color/app_white"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/groupdetails_uploadbutton"
+                    android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
 
             <android.support.design.widget.TabLayout android:id="@+id/groupdetails_tabs"
                 android:layout_width="match_parent" android:layout_height="35dp"
-                android:background="@color/app_primary_accent"/>
+                android:background="@color/app_white"
+                app:tabTextColor="@color/app_primary_text"
+                app:tabSelectedTextColor="@color/app_primary_text"
+                app:tabMode="scrollable"/>
 
         </android.support.design.widget.AppBarLayout>
 

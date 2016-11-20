@@ -1,3 +1,509 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0a1897426566e408a5c20a3d931f77d89771d07f">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-8.3.0_550398e0a60bb2f6a475cea95809ec3f2cd65bfd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="77f9593d979f4347344be233bd0d888315f79517">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-8.3.0_3ed7d5f290bb65e51993c9bea9a8a174fa952a2f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\jp.wasabeef\glide-transformations\2.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="dca7a60bcc49fedf852b01a28826329c330ba977">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\jp.wasabeef-glide-transformations-2.0.0_d25a45fffb381757f72e0d4323ceffd76f734145\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="71eda10e33212e44245524b5087366ff8d805825">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-8.3.0_e2483850f1eb32a5769dfd9f5e632ac722ff007c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_d34dfa68516f5c1785a8fdf99216e4210bde2d81\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nevil\AppData\Local\Android\sdk\build-tools\23.0.2\renderscript\lib\renderscript-v8.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="762016371811e15a66e97cf27f3e852bf287aaf3">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\renderscript-v8_c1a55f53bdbaf46f6e0f171d78a524bcc4622029\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="af6ee25641df3142059c0828517aa7ee6eba08d6">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-8.3.0_67bcef16ad9511c4000a6b4a9fdc4b4c715551fa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b000ecceb9877fefcdc7ab1959ff03df91551656">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-measurement-8.3.0_633f67e7f34c91036a97bbb733f2c820f1f8071c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_b0401059e5bcaee3fe8bf47f1cac016144871ac3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2a24cba08e1d865a79e61335f5a1bd64d520106d">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.zhanghai.android.materialprogressbar-library-1.1.4_16476da6e36ce761ef7a38bc1343fd0a78790a00\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.1.1_0e1b49e31125122b21bef26829b372d922c2c67f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2c6fcd6267cbac6509a2e72a61127534a1d616cf">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-8.3.0_6d508953c2957d791b2190a1ac0ea21f41b32bb9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\libs\httpmime-4.2.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="dca10d76e8f2bf621608dc3c13ca5aab415cf5af">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\2\httpmime-4.2.3_06000c1d327e12763c40e3248072512edc23bab4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="01a90bbb9495a8bbf6f3cfdf12f1b35caaa9524b">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-8.3.0_e042e4eabc3d331ae3e008090f98bc4ade5e3a8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="eb576427887e497cd958a475475f9206e38dc314">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-8.3.0_b766f08c98b2fcc45010dc21a55c740aec8e359a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0af4f577b4a21eb9be2a7f52e33b077b67e6d9f8">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-8.3.0_948e6a3cf81585fe8f3be6ec5621f576ffa0ec56\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_1e3aacd02972672af4f9c48dafde6df6d8e2569a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\core\0.8.5.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ebecf3acfec70f41f94a66e4d84ae55d78362168">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.afollestad.material-dialogs-core-0.8.5.3_f1e28d9be4ceba089b8eb7a731956c2df5bb3bfa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="73a140d5c64106df0b182526bb678bf33800afca">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_673e78ef1794f9fe077975867aa494194efc7461\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nevil\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.0_f4cc2b5ebcd142e4e69478e676cd782934e88b83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-22.2.0_583564043a1d7168af6d881a6c3822d4f8c4eea0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.0_5a3cae4f7b841d77caebf1b7b96a1b0ceca33bb9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ea34579b1be157cd792376362157e9c54ebb4cd7">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-8.3.0_a94fd7ecde71e866fca00a70d84ffe22b3f2d744\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\LDCECommunity\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.3.0\8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c\bolts-tasks-1.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.3.0_f88f90a36970090f3be9e626d260f69249fb4452\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6d9ed9a288364688e7fcf6704776284dac1eb42e">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-8.3.0_41a75cd6aa93587cebaeb8e53bace94f4dfb996d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\LDCECommunity\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_864c4028789da25fed20cdfaa8d51293d3741839\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.0.0_570a568d9053ae861d9cd33b702cd4222a8013a3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9aedc597d74c6d77258ce5236e9abff0c3cc65e3">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-8.3.0_182585de3dea5b51aebd7c465798c402d0156453\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="724ce977487ab3a215d4d2eb47d8dccd9f30013f">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-8.3.0_c4864e862c643f4f7d5a41a13d9539bd6eef1c6f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d96886efea7cc74fbb3abd0e3b51d5638fc57be0">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.1.0_c4d52ac0378df00536936ee6210ae8bf5465fcef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.1.1_b4e294a9d98f31bffb571635776b89b05cae5556\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\LDCECommunity\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.3.0\bc535105332645408ef5f1380215cc954b842178\bolts-applinks-1.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="bc535105332645408ef5f1380215cc954b842178">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.3.0_61e30406bac797fe042d06aa6cf1f1240a895bfa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.1.1_fbd5e6dd5a2c94e4f3250bf511f6e07aa5d6292c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="744c49c02a27569cc4cc049685d3649e4ef439f2">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-8.3.0_17460ade95b6b815734352a8212a5dcfc55a3338\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_4411683ad3299b99e4c5d35311ecebff3a6e57ff\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.0_0d36e1c402b0a4601f329dab862097f379931009\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4b8df1b1e51fe14b0e89b3845dc2e215a024a09f">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-8.3.0_31a8a0365f599e8549dcb78d1b8599e28adca628\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-v13\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6ac094121e75b4b87432beb9305d70c68ec6dcab">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v13-25.0.0_66754ca9cf89722d03c3540d3aae75546d92b6ad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="345a1b5cf5b144ce18ba6962bc66a7e2f26c1c1b">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.3.0_0f63997eb9d612d2abc5f745a3b37ac97528407d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="58adcfbe2c8393765e84c5489d01bba6a5159eb2">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-8.3.0_15be31a39759184eee2d456d5675c116517a709b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.0_e3b4db0364cf9893145dd26caec10643a42bf595\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0c3e81d3eb86b86d194b5cdb6a4de78203f6f7fd">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.3.0_72bf9120567309258e183ffd60590a93c55eed40\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.0.0_8443b48c7a4b7ffefaf8bd2dc8b388f86590a430\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9c9bdb4b2497465a6cf7d5e8f57c5298f828a380">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-8.3.0_59a2740090b45212c6adaa37c06706acb82df0db\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.0.0_2b2953464b68af1d98609f97eb939fd9f6a53501\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-22.2.0_cb8bf3c37adffdc3aaf64c451faf7e87487ffa19\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_febd436e30aceed7b1966b53b92fbd51ab5b266b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-v13\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="67355078cd30daae43f62ba47a4663ee6edb976e">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_e018b0fe2ddd83b0831b7db865eeeadd0097148c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\libs\facebook-android-sdk.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="6dc0eeb78865df2b258beaa293e8d92dde42a3bf">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\2\facebook-android-sdk_62133ac90d519387a37ef698fc218e0348179a12\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_2434cd8546201db3992b0f2206caa480fc7bf18b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="697679619b00837e3d09e9988a2e1e2a9009d502">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-8.3.0_dff07d02b9f1e3a082915007306c0a05de8eadf1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="cb4af597d079ffdc0984a3ec2c03cbf6a1b9f869">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-8.3.0_2d482a61101f1c56c7191c935250c3817199fef7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="81cdc24746a7330837753a3f4d40e1ae068e6143">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_431f225ba722c389b23a94e823ddf6bcf2832946\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="fd76d95678a6b2b8a49bb8a9fb5bcef7aedb70e7">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-8.3.0_1470c08a480497acb0c640651d814402d597323c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\facebook-android-sdk-4.8.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="fd7583c2e90d0994f2439a7e896ab5bd2a1e5719">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\intermediates-exploded-aar-facebook-android-sdk-4.8.2_a302e83adcccece09cd0f52bd32569ae386d6368\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Nevil\StudentCommunity\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="27775d59b16610ac76f1b83693fedd9520396332">
+        <dex dex="C:\Nevil\StudentCommunity\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-8.3.0_e504a32f15e21df763e30ed08d1f2e1dbd360460\classes.dex" />
+    </item>
+
+</items>

@@ -80,8 +80,11 @@
         </style>
 
         <style name="ActionBarThemeOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
-            <item name="android:textColorPrimary">@color/text_on_primary</item>
-            <item name="android:textColorSecondary">@color/subtitle_on_primary</item>
+            <item name="android:textColorPrimary">@color/app_white</item>
+            <item name="android:textColorSecondary">@color/app_white</item>
+            <item name="windowActionBar">false</item>
+            <item name="android:windowActionBarOverlay">true</item>
+            <item name="windowActionBarOverlay">true</item>
         </style>
 
         <style name="SearchViewTheme" parent="ThemeOverlay.AppCompat.ActionBar">
@@ -374,7 +377,7 @@
 
         <!-- Buttons -->
         <style name="Theme.IOSched.CardView.Button" parent="ThemeOverlay.AppCompat.Light">
-            <item name="android:textColor">@color/theme_primary</item>
+            <item name="android:textColor">@color/app_primary_accent</item>
             <item name="colorButtonNormal">@color/button_dark</item>
         </style>
 
@@ -449,8 +452,15 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
+
     <style name="Theme.IOSched.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.IOSched.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.IOSched.PopupOverlayTransparent" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="android:panelColorBackground">@color/transparent</item>
+        <item name="homeAsUpIndicator">@drawable/ic_ab_up_ltr_white</item>
+    </style>
 
     <style name="Bubble.TextAppearance.Dark" parent="android:TextAppearance.Medium">
         <item name="android:textSize">14sp</item>

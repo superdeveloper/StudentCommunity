@@ -30,8 +30,8 @@
     </style>
 
     <style name="Theme.IOSched.AlertDialog" parent="android:Theme.Material.Light.Dialog.Alert">
-        <item name="android:colorPrimary">@color/theme_primary</item>
-        <item name="android:colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="android:colorPrimary">@color/app_primary_accent</item>
+        <item name="android:colorPrimaryDark">@color/app_primary_accent_dark</item>
         <item name="android:colorAccent">@color/theme_accent_2</item>
     </style>
 

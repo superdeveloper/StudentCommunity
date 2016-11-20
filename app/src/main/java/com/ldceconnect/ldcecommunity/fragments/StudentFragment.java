@@ -1,10 +1,11 @@
 package com.ldceconnect.ldcecommunity.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -95,12 +96,7 @@ public class StudentFragment extends Fragment implements SwipeRefreshLayout.OnRe
         mLinearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(mLinearLayoutManager);
 
-        List<Integer> listImage = new ArrayList<Integer>();
-        for (int i = 0; i < this.loadedMembers.size(); i++) {
-            listImage.add(R.drawable.avatar_small);
-        }
-
-        adapter = new SimpleRecyclerAdapter(activity,this.loadedMembers,ApplicationModel.CardLayout.CARD_STUDENT,listImage);
+        adapter = new SimpleRecyclerAdapter(activity,this.loadedMembers,ApplicationModel.CardLayout.CARD_STUDENT);
         recyclerView.setAdapter(adapter);
 
         /* add code for student card touch listener*/

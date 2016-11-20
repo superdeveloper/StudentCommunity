@@ -17,6 +17,7 @@ import android.graphics.RadialGradient;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
@@ -36,11 +37,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.ldceconnect.ldcecommunity.async.DownloadImage;
 import com.ldceconnect.ldcecommunity.async.DownloadImages;
 import com.ldceconnect.ldcecommunity.async.LoadDataAsync;
@@ -59,7 +62,9 @@ import com.ldceconnect.ldcecommunity.model.LoadDataModel;
 import com.ldceconnect.ldcecommunity.model.User;
 import com.ldceconnect.ldcecommunity.model.UserModel;
 import com.ldceconnect.ldcecommunity.util.ApplicationUtils;
+import com.ldceconnect.ldcecommunity.util.CircleTransform;
 import com.ldceconnect.ldcecommunity.util.ImageFilePath;
+import com.ldceconnect.ldcecommunity.util.ImageUtils;
 import com.ldceconnect.ldcecommunity.util.ParserUtils;
 import com.ldceconnect.ldcecommunity.util.RoundedAvatarDrawable;
 import com.ldceconnect.ldcecommunity.util.StreamDrawable;
@@ -75,6 +80,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
+
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class GroupViewActivity extends DrawerActivity {
 
@@ -128,7 +135,7 @@ public class GroupViewActivity extends DrawerActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle(R.string.title_toolbar_group_details);
+        getSupportActionBar().setTitle("");
 
         LoadDataModel ldm = LoadDataModel.getInstance();
 
@@ -144,7 +151,6 @@ public class GroupViewActivity extends DrawerActivity {
                 this, drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.setDrawerIndicatorEnabled(false);
-        mDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_ab_up_ltr);
         mDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,12 +167,12 @@ public class GroupViewActivity extends DrawerActivity {
         mViewPager = (ViewPager) findViewById(R.id.groupdetails_content_container);
         setupViewPager(mViewPager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.groupdetails_tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        mTabLayout = (TabLayout) findViewById(R.id.groupdetails_tabs);
+        mTabLayout.setupWithViewPager(mViewPager);
 
         isUserMemberOfGroup = ApplicationUtils.isUserMemberOfGroup(ldm.loadedAppUserGroups, LoadDataModel.loadGroupId);
         isUserAdminOfGroup = ApplicationUtils.isUserAdminOfGroup(ldm.loadedGroupForDetail, LoadDataModel.loadGroupId);
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
@@ -337,33 +343,50 @@ public class GroupViewActivity extends DrawerActivity {
         });
 
         mImageView = (ImageView)findViewById(R.id.groupdetails_header_imageview);
-        Bitmap imageDefault = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.group_icon_medium);
 
-        if(imageDefault != null) {
-            RoundedAvatarDrawable rd = new RoundedAvatarDrawable(imageDefault);
-            mImageView.setBackground(rd);
-        }
-        //Download Group Image
-        ArrayList<String> groupImage = new ArrayList<>();
 
         if(ldm.loadedGroupForDetail.size() > 0) {
             Group g = ldm.loadedGroupForDetail.get(0);
-            String fileName = g.groupimageurl;
-            if( fileName != null && !fileName.isEmpty()) {
-                groupImage.add(fileName);
-                //ArrayList<String> groupImagePath = ParserUtils.getUploadFilePathsFromFilenames(groupImage);
-                new DownloadImages(this, groupImage, DownloadImages.DownloadImagesContext.DOWNLOAD_GROUP_PROFILE_IMAGE).execute();
+			if( g != null) {
+                mGroupTitle = (TextView) findViewById(R.id.header_name);
+                mGroupTitle.setText(g.name);
+                mMembersCount = (TextView) findViewById(R.id.header_members_count);
+                mMembersCount.setText(g.nummembers + " Members");
+                mPostsCount = (TextView) findViewById(R.id.header_posts_count);
+                mPostsCount.setText(g.numthreads + " Posts");
+
+                Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
+                mGroupTitle.setTypeface(tf);
+                Glide.with(this).load(g.groupimageurl).centerCrop().into(mImageView);
+
             }
 
-            mGroupTitle = (TextView)findViewById(R.id.header_name);
-            mGroupTitle.setText(g.name);
-            mMembersCount = (TextView)findViewById(R.id.header_members_count);
-            mMembersCount.setText(g.nummembers + " Members");
-            mPostsCount = (TextView)findViewById(R.id.header_posts_count);
-            mPostsCount.setText(g.numthreads + " Posts");
         }
 
+        //setupTabIcons();
 
+    }
+
+
+
+    /**
+     * Adding custom view to tab
+     */
+    private void setupTabIcons() {
+
+        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        //tabOne.setText(getString(R.string.title_group_detail_tab_posts));
+        Drawable d = getResources().getDrawable(R.drawable.comments_icon);
+        d = ImageUtils.scaleDrawable(d, 80, 80);
+        tabOne.setCompoundDrawables(null, null, null, d);
+        mTabLayout.getTabAt(0).setCustomView(tabOne);
+
+        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        //tabTwo.setText(getString(R.string.title_group_detail_tab_members));
+        Drawable d2 = getResources().getDrawable(R.drawable.group_default);
+        d2 = ImageUtils.scaleDrawable(d2, 80, 80);
+        tabTwo.setCompoundDrawables(null, null, null, d2);
+        mTabLayout.getTabAt(1).setCustomView(tabTwo);
     }
 
     private void beginCrop(Uri source) {
@@ -671,10 +694,11 @@ public class GroupViewActivity extends DrawerActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFrag(new DiscussionFragment(this,getResources().getColor(R.color.app_white), LoadDataModel.LoadContext.LOAD_GROUP_THREADS), getString(R.string.title_group_detail_tab_posts));
         adapter.addFrag(new StudentFragment(this, getResources().getColor(R.color.app_white), LoadDataModel.LoadContext.LOAD_GROUP_MEMBERS), getString(R.string.title_group_detail_tab_members));
         adapter.addFrag(new GroupDetailFragment(getResources().getColor(R.color.ldce_white)), getString(R.string.title_group_detail_tab_about));
+        adapter.addFrag(new StudentFragment(this, getResources().getColor(R.color.app_white), LoadDataModel.LoadContext.LOAD_GROUP_MEMBERS), "Activity");
         viewPager.setAdapter(adapter);
     }
 }

@@ -135,13 +135,6 @@ public class Config {
         String[] EXPLORE_CATEGORIES =
                 {CATEGORY_THEME, CATEGORY_TOPIC, CATEGORY_TYPE};
 
-        int[] EXPLORE_CATEGORY_ALL_STRING = {
-                R.string.all_themes, R.string.all_topics, R.string.all_types
-        };
-
-        int[] EXPLORE_CATEGORY_TITLE = {
-                R.string.themes, R.string.topics, R.string.types
-        };
     }
 
     static {

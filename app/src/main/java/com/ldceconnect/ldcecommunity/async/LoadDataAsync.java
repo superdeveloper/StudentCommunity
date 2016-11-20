@@ -140,8 +140,8 @@ public class LoadDataAsync extends AsyncTask<String, Integer, Map<String,JSONObj
         LoadDataModel.isNetworkCheckSuccessful = false;
 
 
-        ConnectionDetector cd = new ConnectionDetector(activity);
-        netcheckResult = cd.isConnectingToInternet();//new NetCheck(activity).execute().get();
+        //ConnectionDetector cd = new ConnectionDetector(activity);
+        netcheckResult = true;//cd.isConnectingToInternet();//new NetCheck(activity).execute().get();
 
 
         if(netcheckResult == true)
@@ -230,7 +230,7 @@ public class LoadDataAsync extends AsyncTask<String, Integer, Map<String,JSONObj
                         }
                     }
                 };
-                handler.postDelayed(myRunnable, 40000);
+                //handler.postDelayed(myRunnable, 40000);
 
                 LoadDataModel ldm = LoadDataModel.getInstance();
 
@@ -654,13 +654,7 @@ public class LoadDataAsync extends AsyncTask<String, Integer, Map<String,JSONObj
 
                             LoadDataModel ldm = LoadDataModel.getInstance();
                             // this will download all thumbs for students
-                            if( ldm.loadedGroupMembers.size() > 0) {
-                                ArrayList<String> userNames = ParserUtils.getUsernameArrayFromUserArray(ldm.loadedGroupMembers);
-                                ArrayList<String> fileNames = ParserUtils.getFilenamesFromUserNames(userNames, "_thumb");
-                                ArrayList<String> filePaths = ParserUtils.getUploadFilePathsFromFilenames(fileNames);
-
-                                new DownloadImages(activity, filePaths, DownloadImages.DownloadImagesContext.DOWNLOAD_STUDENT_THUMBS).execute();
-                            }
+                            
 
                             Intent intent = new Intent(activity, GroupViewActivity.class);
                             intent.putExtra("title", LoadDataModel.loadGroupName);
@@ -722,14 +716,7 @@ public class LoadDataAsync extends AsyncTask<String, Integer, Map<String,JSONObj
                                 }
 
 
-                                // this will download all thumbs for students
-                                if( ldm.loadedGroupMembers.size() > 0) {
-                                    ArrayList<String> userNames = ParserUtils.getUsernameArrayFromUserArray(ldm.loadedGroupMembers);
-                                    ArrayList<String> fileNames = ParserUtils.getFilenamesFromUserNames(userNames, "_thumb");
-                                    ArrayList<String> filePaths = ParserUtils.getUploadFilePathsFromFilenames(fileNames);
-
-                                    new DownloadImages(activity, filePaths, DownloadImages.DownloadImagesContext.DOWNLOAD_STUDENT_THUMBS).execute();
-                                }
+                                
                             }
 
                         }
@@ -983,11 +970,7 @@ public class LoadDataAsync extends AsyncTask<String, Integer, Map<String,JSONObj
                         if (Integer.parseInt(json_group_members.getString(DataModel.KEY_SUCCESS)) == 1) {
                             LoadDataModel ldm = LoadDataModel.getInstance();
                             if( ldm.loadedGroupMembers.size() > 0) {
-                                ArrayList<String> userNames = ParserUtils.getUsernameArrayFromUserArray(ldm.loadedGroupMembers);
-                                ArrayList<String> fileNames = ParserUtils.getFilenamesFromUserNames(userNames, "_thumb");
-                                ArrayList<String> filePaths = ParserUtils.getUploadFilePathsFromFilenames(fileNames);
 
-                                new DownloadImages(activity, filePaths, DownloadImages.DownloadImagesContext.DOWNLOAD_STUDENT_THUMBS).execute();
 
                                 if( activity.getClass() == GroupViewActivity.class)
                                 {
@@ -1096,7 +1079,7 @@ public class LoadDataAsync extends AsyncTask<String, Integer, Map<String,JSONObj
             progressBar.setVisibility(View.INVISIBLE);
         }
 
-        handler.removeCallbacks(myRunnable);
+        //handler.removeCallbacks(myRunnable);
     }
 
 }

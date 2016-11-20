@@ -26,5 +26,5 @@
     android:padding="@dimen/spacing_normal"
     android:paddingTop="@dimen/spacing_micro"
     android:paddingBottom="@dimen/spacing_micro"
-    android:text="@string/more_items_button"
+    android:text="More"
     style="@style/MoreButton" />

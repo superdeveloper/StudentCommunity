@@ -1,5 +1,6 @@
 package com.ldceconnect.ldcecommunity;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -52,6 +53,14 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 signIn();
             }
         });
+
+        TextView tt = (TextView)findViewById(R.id.welcomeTitle);
+        TextView tt2 = (TextView)findViewById(R.id.textView4);
+        TextView tt3 = (TextView)findViewById(R.id.textView3);
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/nexa-rust-script.otf");
+        tt.setTypeface(tf);
+        tt2.setTypeface(tf);
+        tt3.setTypeface(tf);
     }
 
     protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {

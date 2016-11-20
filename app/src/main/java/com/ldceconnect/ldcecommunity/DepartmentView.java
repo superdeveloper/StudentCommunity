@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -25,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.ldceconnect.ldcecommunity.async.DownloadImage;
 import com.ldceconnect.ldcecommunity.async.DownloadImages;
 import com.ldceconnect.ldcecommunity.fragments.DepartmentDetailFragment;
@@ -37,6 +39,7 @@ import com.ldceconnect.ldcecommunity.model.ApplicationModel;
 import com.ldceconnect.ldcecommunity.model.Department;
 import com.ldceconnect.ldcecommunity.model.LoadDataModel;
 import com.ldceconnect.ldcecommunity.model.UserModel;
+import com.ldceconnect.ldcecommunity.util.CircleTransform;
 import com.ldceconnect.ldcecommunity.util.ParserUtils;
 import com.ldceconnect.ldcecommunity.util.RoundedAvatarDrawable;
 
@@ -85,7 +88,6 @@ public class DepartmentView extends DrawerActivity {
                 this, drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.setDrawerIndicatorEnabled(false);
-        mDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_ab_up_ltr);
         mDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,16 +138,17 @@ public class DepartmentView extends DrawerActivity {
         });
 
         mImageView = (ImageView) findViewById(R.id.departmentview_imagecontainer);
-
+        Uri uri = null;
         LoadDataModel ldm = LoadDataModel.getInstance();
         if( ldm.loadedDepartmentForDetail.size() > 0) {
             Department d = ldm.loadedDepartmentForDetail.get(0);
             ArrayList<String> filePaths = new ArrayList<>();
-            if(d.deptimageurl != null) {
-                filePaths.add(d.deptimageurl);
+            if (d.deptimageurl != null) {
+                uri = Uri.parse(d.deptimageurl);
             }
-
-            new DownloadImages(this, filePaths, DownloadImages.DownloadImagesContext.DOWNLOAD_DEPARTMENT_PROFILE_IMAGE).execute();
+        }
+        if( uri != null) {
+            Glide.with(this).load(uri.toString()).transform(new CircleTransform(this)).into(mImageView);
         }
 
     }
@@ -163,7 +166,7 @@ public class DepartmentView extends DrawerActivity {
 
 
     private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFrag(new DepartmentDetailFragment(getResources().getColor(R.color.app_white)), getString(R.string.title_group_detail_tab_about));
         adapter.addFrag(new StudentFragment(this,getResources().getColor(R.color.app_white), LoadDataModel.LoadContext.LOAD_DEPARTMENT_MEMBERS), getString(R.string.title_group_detail_tab_members));
         viewPager.setAdapter(adapter);

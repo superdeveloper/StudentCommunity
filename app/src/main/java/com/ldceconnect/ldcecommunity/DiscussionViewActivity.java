@@ -113,7 +113,6 @@ public class DiscussionViewActivity extends DrawerActivity {
                 this, drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.setDrawerIndicatorEnabled(false);
-        mDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_ab_up_ltr);
         mDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -452,7 +451,7 @@ public class DiscussionViewActivity extends DrawerActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFrag(new PostMessageFragment(this,getResources().getColor(R.color.app_white), LoadDataModel.LoadContext.LOAD_THREAD_POSTS), getString(R.string.title_tab_discussions));
         viewPager.setAdapter(adapter);
     }

@@ -2,6 +2,7 @@ package com.ldceconnect.ldcecommunity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,9 +10,11 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -24,12 +27,12 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,6 +40,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -54,13 +60,17 @@ import java.util.concurrent.ExecutionException;
 
 import android.widget.LinearLayout;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.facebook.appevents.AppEventsLogger;
 import com.ldceconnect.ldcecommunity.async.DownloadImage;
 import com.ldceconnect.ldcecommunity.async.DownloadImages;
 import com.ldceconnect.ldcecommunity.async.LoadDataAsync;
+import com.ldceconnect.ldcecommunity.customlayouts.SlidingDrawer;
+import com.ldceconnect.ldcecommunity.fragments.CalendarFragment;
 import com.ldceconnect.ldcecommunity.fragments.DepartmentFragment;
 import com.ldceconnect.ldcecommunity.fragments.DiscussionFragment;
 import com.ldceconnect.ldcecommunity.fragments.GroupFragment;
+import com.ldceconnect.ldcecommunity.fragments.MapViewFragment;
 import com.ldceconnect.ldcecommunity.fragments.PostFragment;
 import com.ldceconnect.ldcecommunity.fragments.ViewPagerAdapter;
 import com.ldceconnect.ldcecommunity.model.ApplicationModel;
@@ -84,20 +94,27 @@ import org.json.JSONException;
 
 import com.facebook.FacebookSdk;
 
-public class ExploreCommunity extends DrawerActivity{
+
+public class ExploreCommunity extends DrawerActivity  {
 
     //ActionBarDrawerToggle mDrawerToggle;
     private static DatabaseHelper sInstance;
     public ViewPagerAdapter adapter;
+    RelativeLayout borrom_bar ;
+    //public SlidingDrawer slidingDrawer;
+    public static FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_explore_community);
 
         ApplicationModel.AppEventModel.setActiveScreen(ApplicationModel.Screen.SCREEN_EXPLORE_COMMUNITY);
         ApplicationModel.AppEventModel.setActiveTab(ApplicationModel.Tabs.TAB_DISCUSSION);
         ApplicationModel.SearchModel.setSearchContext(ApplicationModel.SearchContext.SEARCH_THREAD);
+
+        fragmentManager = getFragmentManager();
 
         /* Toolbar */
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -124,17 +141,20 @@ public class ExploreCommunity extends DrawerActivity{
 
                 FloatingActionButton fabCreateGroup = (FloatingActionButton) findViewById(R.id.fab_create_group);
                 FloatingActionButton fabCreateThread = (FloatingActionButton) findViewById(R.id.fab_create_discussion);
+                FloatingActionButton fabCalendar = (FloatingActionButton) findViewById(R.id.fab_datepicker);
                 switch (tab.getPosition()) {
                     case 1:
-                        fabCreateGroup.show();
+                        //fabCreateGroup.show();
                         fabCreateThread.hide();
+                        fabCalendar.hide();
                         ApplicationModel.SearchModel.setSearchContext(ApplicationModel.SearchContext.SEARCH_GROUP);
                         ApplicationModel.AppEventModel.setActiveTab(ApplicationModel.Tabs.TAB_GROUP);
                         showToast("Groups");
                         break;
                     case 0:
                         fabCreateGroup.hide();
-                        fabCreateThread.show();
+                        //fabCreateThread.show();
+                        fabCalendar.hide();
                         ApplicationModel.SearchModel.setSearchContext(ApplicationModel.SearchContext.SEARCH_POST);
                         ApplicationModel.AppEventModel.setActiveTab(ApplicationModel.Tabs.TAB_DISCUSSION);
                         showToast("Posts");
@@ -142,10 +162,15 @@ public class ExploreCommunity extends DrawerActivity{
                     case 2:
                         fabCreateGroup.hide();
                         fabCreateThread.hide();
+                        fabCalendar.hide();
                         ApplicationModel.SearchModel.setSearchContext(ApplicationModel.SearchContext.SEARCH_DEPARTMENT);
                         ApplicationModel.AppEventModel.setActiveTab(ApplicationModel.Tabs.TAB_DEPARTMENT);
                         showToast("Departments");
                         break;
+                    case 3:
+                        fabCreateGroup.hide();
+                        fabCreateThread.hide();
+                        //fabCalendar.show();
 
                 }
             }
@@ -160,14 +185,7 @@ public class ExploreCommunity extends DrawerActivity{
 
             }
         });
-
-
-        /* Search View*/
-        /*SearchView searchView = (SearchView) findViewById(R.id.search);
-        int magId = getResources().getIdentifier("android:id/search_mag_icon", null, null);
-        ImageView magImage = (ImageView) searchView.findViewById(magId);
-        magImage.setLayoutParams(new LinearLayout.LayoutParams(50, 10));*/
-
+		
         /* Floating Action Buttons */
         FloatingActionButton fabCreateGroup = (FloatingActionButton) findViewById(R.id.fab_create_group);
         fabCreateGroup.hide();
@@ -180,14 +198,31 @@ public class ExploreCommunity extends DrawerActivity{
 
         });
 
-        FloatingActionButton fabCreateThread = (FloatingActionButton) findViewById(R.id.fab_create_discussion);
-        //fabCreateThread.hide();
+        //borrom_bar = ( RelativeLayout)findViewById(R.id.bottom_bar);
+
+        final FloatingActionButton fabCreateThread = (FloatingActionButton) findViewById(R.id.fab_create_discussion);
+        fabCreateThread.hide();
         fabCreateThread.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ExploreCommunity.this, CreateThreadActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
+            }
+
+        });
+
+        FloatingActionButton fabCalendar = (FloatingActionButton) findViewById(R.id.fab_datepicker);
+        fabCalendar.hide();
+        fabCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RelativeLayout rellayout = (RelativeLayout) LayoutInflater.from(ExploreCommunity.this).inflate(R.layout.dialog_calendar, null);
+                new MaterialDialog.Builder(ExploreCommunity.this)
+                        .title("Select Date")
+                        .customView(rellayout, true)
+                        .positiveText("Ok")
+                        .negativeText("Cancel").show();
             }
 
         });
@@ -200,32 +235,38 @@ public class ExploreCommunity extends DrawerActivity{
             }
         });
 
-        //final ViewPager viewPager1 = (ViewPager) findViewById(R.id.explore_community_content_container);
-        //setupViewPager(viewPager);
-        LoadDataModel ldm = LoadDataModel.getInstance();
-        ArrayList<String> groupImageFileNames = new ArrayList<>();
-        for (int i = 0; i < ldm.loadedGroups.size(); i++)
-        {
-            Group g = ldm.loadedGroups.get(i);
-            if( g != null )
-            {
-                groupImageFileNames.add(g.groupimageurl);
+        /*final int stickTo = 0;
+        final SlidingDrawerFragment fragment = SlidingDrawerFragment.newInstance(stickTo);*/
+        //slidingDrawer = (SlidingDrawer)findViewById(R.id.slidingDrawer);
+        /*CoordinatorLayout cr = (CoordinatorLayout) findViewById(R.id.explore_community_main_content);
+        cr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (slidingDrawer.isOpened() && event.getY() < slidingDrawer.getY()) {
+                    slidingDrawer.closeDrawer();
+                    return true;
+                }
+                return true;
             }
+        });*/
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //final SlidingDrawer slidingDrawer = (SlidingDrawer)findViewById(R.id.slidingDrawer);
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+
+
+                /*if (slidingDrawer.isOpened()) {
+                    slidingDrawer.closeDrawer();
+                    return true;
+                }*/
+
+            default:
+                return super.onKeyDown(keyCode, event);
         }
-        new DownloadImages(this,groupImageFileNames, DownloadImages.DownloadImagesContext.DOWNLOAD_GROUP_THUMBS).execute();
-
-
-        ArrayList<String> departmentImageFileNames = new ArrayList<>();
-        for (int i = 0; i < ldm.loadedDepartments.size(); i++)
-        {
-            Department d = ldm.loadedDepartments.get(i);
-            if( d != null )
-            {
-                departmentImageFileNames.add(d.deptimageurl);
-            }
-        }
-        new DownloadImages(this,departmentImageFileNames, DownloadImages.DownloadImagesContext.DOWNLOAD_DEPARTMENT_IMAGES).execute();
-
     }
 
     void showToast(String msg) {
@@ -361,12 +402,12 @@ public class ExploreCommunity extends DrawerActivity{
         }*/
 
         // Logs 'install' and 'app activate' App Events.
-        AppEventsLogger.activateApp(this);
+        //AppEventsLogger.activateApp(this);
 
 
         // Generate Token
-        InstanceIdHelper ihelper = new InstanceIdHelper(this);
-        ihelper.getTokenInBackground(CommonUtilities.SENDER_ID,"GCM",new Bundle());
+        //InstanceIdHelper ihelper = new InstanceIdHelper(this);
+        //ihelper.getTokenInBackground(CommonUtilities.SENDER_ID,"GCM",new Bundle());
 
         // Todo : GetInstanceId from it and set it to user table for use by server
         // now using a server script send a notification
@@ -405,11 +446,13 @@ public class ExploreCommunity extends DrawerActivity{
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFrag(new DiscussionFragment(this,getResources().getColor(R.color.ldce_white), LoadDataModel.LoadContext.LOAD_THREADS), getString(R.string.title_tab_discussions));
         adapter.addFrag(new GroupFragment(this,getResources().getColor(R.color.ldce_white), LoadDataModel.LoadContext.LOAD_GROUPS), getString(R.string.title_tab_groups));
         //adapter.addFrag(new PostFragment(this,getResources().getColor(R.color.ldce_white), LoadDataModel.LoadContext.LOAD_THREADS), getString(R.string.title_tab_discussions));
         adapter.addFrag(new DepartmentFragment(this,getResources().getColor(R.color.ldce_white)), getString(R.string.title_tab_departments));
+        adapter.addFrag(new CalendarFragment(this,getResources().getColor(R.color.ldce_white), LoadDataModel.LoadContext.LOAD_THREADS), "Calendar");
+        adapter.addFrag(new MapViewFragment(this, getResources().getColor(R.color.ldce_white), LoadDataModel.LoadContext.LOAD_GROUPS), "Map");
         viewPager.setAdapter(adapter);
     }
 

@@ -16,5 +16,5 @@
   -->
 <bitmap
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/ic_ab_up_ltr"
+    android:src="@drawable/ic_ab_up_ltr_white"
     android:autoMirrored="true" />

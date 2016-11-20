@@ -1,10 +1,11 @@
 package com.ldceconnect.ldcecommunity.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+
 import com.ldceconnect.ldcecommunity.customlayouts.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -88,42 +89,11 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
         mLinearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(mLinearLayoutManager);
-        //recyclerView.setHasFixedSize(true);
 
-        List<Integer> listImage = new ArrayList<Integer>();
-        for (int i = 0; i < this.loadedGroups.size(); i++) {
-            listImage.add(R.drawable.group_icon);
-        }
 
-        adapter = new SimpleRecyclerAdapter(activity,this.loadedGroups,ApplicationModel.CardLayout.CARD_GROUP,listImage);
+        adapter = new SimpleRecyclerAdapter(activity,this.loadedGroups,ApplicationModel.CardLayout.CARD_GROUP);
         recyclerView.setAdapter(adapter);
 
-        /*recyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        if (position >= 0) {
-                            ApplicationModel.AppEventModel.setActiveTab(ApplicationModel.Tabs.TAB_GROUP);
-                            ApplicationModel.AppEventModel.setGroupTabClickId(position);
-                            Group g = (Group) adapter.dataModels.get(position);
-                            LoadDataModel.loadGroupId = g.id;
-                            LoadDataModel.loadGroupName = g.name;
-                            ApplicationModel.loadedGroupIndex = position;
-
-                            if (LoadDataModel.isCurrentDataLoadFinished == true) {
-                                LoadDataModel ldm = LoadDataModel.getInstance();
-                                ldm.loadedGroupMembers.clear();
-                                ldm.loadedGroupThreads.clear();
-                                ldm.loadedGroupForDetail.clear();
-                                new LoadDataAsync(activity, LoadDataModel.LoadContext.LOAD_GROUP_DETAILS, null).execute();
-                            }
-
-                        } else {
-                            //Toast.makeText(getContext(), "Undefined Click!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                })
-        );*/
 
         recyclerView.setOnScrollListener(new EndlessRecyclerOnScrollListener(mLinearLayoutManager) {
             @Override

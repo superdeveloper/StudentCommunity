@@ -15,7 +15,7 @@
     <android.support.design.widget.AppBarLayout android:id="@+id/appbar"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:theme="@style/Theme.IOSched.AppBarOverlay"
-        android:background="@color/app_secondary_accent">
+        android:background="@color/app_primary_accent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
 
             <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
                 android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-                android:background="@color/app_secondary_accent"
+                android:background="@color/app_primary_accent"
                 app:popupTheme="@style/Theme.IOSched.PopupOverlay"
                 app:layout_scrollFlags="scroll|enterAlways"
                 android:title="@string/app_name"/>

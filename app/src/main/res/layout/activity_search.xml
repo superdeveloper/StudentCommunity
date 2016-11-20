@@ -45,15 +45,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize"
                     android:gravity="center_vertical"
-                    app:theme="@style/SearchViewTheme">
+                    app:theme="@style/SearchViewTheme"
+                    android:paddingLeft="2dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                    <android.support.v7.widget.SearchView
+
+                        <android.support.v7.widget.SearchView
                         android:id="@+id/search_view"
-                        android:layout_width="300dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                            android:paddingRight="50dp"
                         android:imeOptions="actionSearch|flagNoExtractUi" />
 
                     <TextView
@@ -67,17 +70,12 @@
                     </RelativeLayout>
                 </android.support.v7.widget.Toolbar>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/divider_height"
-                    android:background="@color/divider" />
+
 
                     <ListView
                         android:id="@+id/search_results"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/spacing_normal"
-                        android:paddingBottom="@dimen/spacing_normal"
                         android:clipToPadding="false"
                         android:divider="@null"/>
             </LinearLayout>

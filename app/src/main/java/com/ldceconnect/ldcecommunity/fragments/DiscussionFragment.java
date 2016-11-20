@@ -1,21 +1,24 @@
 package com.ldceconnect.ldcecommunity.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+
 
 import com.ldceconnect.ldcecommunity.StarredThreadsActivity;
 import com.ldceconnect.ldcecommunity.async.UploadDataAsync;
+import com.ldceconnect.ldcecommunity.customlayouts.SlidingDrawer;
 import com.ldceconnect.ldcecommunity.customlayouts.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -51,7 +54,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by NEVIL on 11/26/2015.
  */
-public class DiscussionFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class DiscussionFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     int color;
     public SimpleRecyclerAdapter adapter;
     Intent intent;
@@ -106,52 +109,9 @@ public class DiscussionFragment extends Fragment implements SwipeRefreshLayout.O
         recyclerView.setLayoutManager(mLinearLayoutManager);
         //recyclerView.setHasFixedSize(true);
 
-        List<Integer> listImage = new ArrayList<Integer>();
-        for (int i = 0; i < this.loadedThreads.size(); i++) {
-            listImage.add(R.drawable.discussion_icon);
-        }
-
-        adapter = new SimpleRecyclerAdapter(activity,this.loadedThreads,ApplicationModel.CardLayout.CARD_DISCUSSION,listImage);
+        adapter = new SimpleRecyclerAdapter(activity,this.loadedThreads,ApplicationModel.CardLayout.CARD_DISCUSSION);
         recyclerView.setAdapter(adapter);
 
-
-
-        /*recyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        if (position >= 0 && LoadDataModel.detachCardItemOnTouchListener == false) {
-                            ApplicationModel.AppEventModel.setActiveTab(ApplicationModel.Tabs.TAB_DISCUSSION);
-                            ApplicationModel.AppEventModel.setDiscussionTabClickId(position);
-
-                            //recyclerView.getChildViewHolder()
-
-                            LoadDataModel ldm = LoadDataModel.getInstance();
-
-                            ldm.threadTouchItemId = position;
-
-                            Discussion d = (Discussion) adapter.dataModels.get(position);
-
-                            LoadDataModel.loadThreadId = d.id;
-                            LoadDataModel.loadThreadParentGroup = d.parentgroup;
-                            LoadDataModel.loadThreadTitle = d.title;
-                            LoadDataModel.loadThreadDescription = d.description;
-                            LoadDataModel.loadThreadParentGroupName = d.parentgroupname;
-                            LoadDataModel.loadThreadVisibilityOpen = d.ispublic;
-
-                            if (LoadDataModel.isCurrentDataLoadFinished == true) {
-
-                                ldm.loadedThreadPosts.clear();
-                                ldm.loadedThreadForDetail.clear();
-                                new LoadDataAsync(activity, LoadDataModel.LoadContext.LOAD_THREAD_DETAILS, null).execute();
-                            }
-
-                        } else {
-                            //Toast.makeText(getContext(), "Undefined Click!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                })
-        );*/
 
         scrollListener = new EndlessRecyclerOnScrollListener(mLinearLayoutManager) {
             @Override
@@ -164,15 +124,6 @@ public class DiscussionFragment extends Fragment implements SwipeRefreshLayout.O
                     @Override
                     public void run() {
                         Integer progressbarLoc = loadedThreads.size();
-
-                        /*Integer current_load = 0;
-                        if(dm.loadedThreads.size() >= dm.MAX_LOADED_THREADS)
-                            current_load = 0;
-                        else if (dm.loadedThreads.size() <= dm.MAX_LOADED_THREADS - dm.NUM_LOAD_ITEMS_ON_PAGE)
-                            current_load = dm.NUM_LOAD_ITEMS_ON_PAGE;
-                        else if (dm.loadedThreads.size() > dm.MAX_LOADED_THREADS - dm.NUM_LOAD_ITEMS_ON_PAGE &&
-                                dm.loadedThreads.size() < dm.MAX_LOADED_THREADS)
-                            current_load = dm.MAX_LOADED_THREADS - dm.loadedThreads.size();*/
 
                         try {
                             Map<String, JSONObject> jsonObjectsArray;
